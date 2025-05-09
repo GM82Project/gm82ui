@@ -1,12 +1,19 @@
-///ui_set_size(element,width,height,margin,[minwidth,minheight,maxwidth,maxheight])
+///ui_set_size(element,width,height,margin,padding,[minwidth,minheight,maxwidth,maxheight])
 
-dsmap(argument[0],"width",argument[1])
-dsmap(argument[0],"height",argument[2])
-dsmap(argument[0],"margin",argument[3])
+var ui;ui=argument[0]
 
-if (argument_count==8) {
-    dsmap(argument[0],"minwidth",argument[4])
-    dsmap(argument[0],"minheight",argument[5])
-    dsmap(argument[0],"maxwidth",argument[6])
-    dsmap(argument[0],"maxheight",argument[7])
+instance_activate_object(ui)
+
+ui.width=argument[1]
+ui.height=argument[2]
+ui.margin=argument[3]
+ui.padding=argument[4]
+
+if (argument_count==9) {
+    ui.minwidth=argument[5]
+    ui.minheight=argument[6]
+    ui.maxwidth=argument[7]
+    ui.maxheight=argument[8]
 }
+
+instance_deactivate_object(ui)

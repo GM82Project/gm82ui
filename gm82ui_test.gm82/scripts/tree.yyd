@@ -1,3 +1,4 @@
+|ui_init
 |ui_create
 |ui_set_size
 |ui_set_format
@@ -8,7 +9,9 @@
 |ui_append_child
 |ui_remove_child
 |ui_update
+|ui_update_inner
 |ui_draw
+|ui_draw_inner
 |ui_destroy
 |test_program
 |test_styler

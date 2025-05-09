@@ -1,7 +1,7 @@
 ui_left=1
 ui_right=2
-ui_top=4
-ui_bottom=8
+ui_up=4
+ui_down=8
 ui_center_h=16
 ui_center_v=32
 ui_t_panel=0

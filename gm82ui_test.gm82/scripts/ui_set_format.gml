@@ -1,5 +1,12 @@
-///ui_set_format(element,align,resizable,overflow)
+///ui_set_format(element,align,resizable,overflow,direction)
 
-dsmap(argument0,"align",argument1)
-dsmap(argument0,"resizable",argument2)
-dsmap(argument0,"overflow",argument3)
+var ui;ui=argument0
+
+instance_activate_object(ui)
+
+ui.align=argument1
+ui.resizable=argument2
+ui.overflow=argument3
+ui.direction=argument4
+
+instance_deactivate_object(ui)

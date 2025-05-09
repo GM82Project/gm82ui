@@ -1,18 +1,22 @@
 ///test_styler(element)
-var element,dx,dy,dw,dh,up;
+var ui,dx,dy,dw,dh,up;
 
-element=argument0
+ui=argument0
 
-dx=dsmap(element,"x")
-dy=dsmap(element,"y")
-dw=dsmap(element,"width")
-dh=dsmap(element,"height")
+dx=ui.x
+dy=ui.y
+dw=ui.width
+dh=ui.height
 
-up=dsmap(element,"state")=="up"
+up=ui.state=="up"
 
-draw_set_color($c0c0c0)
-draw_button(dx,dy,dx+dw,dy+dh,up)
+draw_set_color($ff)
+draw_rectangle(dx,dy,dx+dw-1,dy+dh-1,0)
+draw_set_color($ffffff)
+draw_rectangle(dx+4,dy+4,dx+dw-4-1,dy+dh-4-1,0)
+
+//draw_button(dx,dy,dx+dw,dy+dh,up)
 draw_set2(1,1)
 draw_set_color(0)
-draw_text(dx+dw div 2,dy+dh div 2,dsmap(element,"text"))
+draw_text(dx+dw div 2,dy+dh div 2,ui.text)
 draw_reset()

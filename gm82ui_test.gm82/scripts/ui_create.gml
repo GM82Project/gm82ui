@@ -28,6 +28,7 @@
     align: const mask
     resizable: const mask
     overflow: const
+    direction: const
 
     temporaries:
 
@@ -38,27 +39,39 @@
     lh: int - current layout line height
 */
 
-var ui; ui=dsmap()
+var ui; ui=instance_create(0,0,global.__ui_obj)
 
-dsmap(ui,"type",argument[0])
-dsmap(ui,"enabled",true)
-dsmap(ui,"state","up")
+ui.type=argument[0]
+ui.enabled=true
+ui.state="up"
 
-dsmap(ui,"parent",noone)
-dsmap(ui,"children",dslist())
-if (argument_count>1) dsmap(ui,"handler",argument[1]) else dsmap(ui,"handler",noone)
+ui.parent=noone
+ui.children=ds_list_create()
+if (argument_count>1) ui.handler=argument[1] else ui.handler=noone
 
-dsmap(ui,"style",noone)
-dsmap(ui,"text","")
-dsmap(ui,"alt","")
-dsmap(ui,"help","")
+ui.style=noone
+ui.text=""
+ui.alt=""
+ui.help=""
+ui.x=0
+ui.y=0
+ui.width=0
+ui.height=0
+ui.margin=0
+ui.padding=0
 
-dsmap(ui,"x",0)
-dsmap(ui,"y",0)
-dsmap(ui,"width",0)
-dsmap(ui,"height",0)
+ui.align=ui_left+ui_up
+ui.overflow=ui_over_spill
+ui.direction=ui_right
 
-dsmap(ui,"align",ui_left+ui_top)
-dsmap(ui,"overflow",ui_over_spill)
+ui.lxi=0
+ui.lyi=0
+ui.lx=0
+ui.ly=0
+ui.lh=0
+ui.lph=0
+ui.lpv=0
+
+instance_deactivate_object(ui)
 
 return ui

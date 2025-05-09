@@ -1,7 +1,7 @@
 
 ui_create
-ui_update
-ui_draw
+ui_update_inner
+ui_draw_inner
 test_program
 ui_destroy
 ui_set_size
@@ -14,3 +14,6 @@ test_styler
 test_handler
 ui_set_text
 ui_set_alt
+ui_init
+ui_draw
+ui_update

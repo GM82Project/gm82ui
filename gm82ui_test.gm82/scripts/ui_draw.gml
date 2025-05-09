@@ -1,13 +1,3 @@
-var ui,style,children,i;
-
-ui=argument0
-
-if (!dsmap(ui,"enabled")) exit
-
-style=dsmap(ui,"style")
-if (script_exists(style)) script_execute(style,ui)
-
-children=dsmap(ui,"children")
-i=0 repeat (ds_list_size(children)) {
-    ui_draw(ds_list_find_value(children,i))
-i+=1}
+instance_activate_object(global.__ui_obj)
+ui_draw_inner(argument0)
+instance_deactivate_object(global.__ui_obj)
