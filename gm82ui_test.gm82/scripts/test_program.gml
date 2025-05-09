@@ -20,6 +20,7 @@ if (argument0=="create") {
     ui_append_child(panel,ui_create(ui_t_break))
 
     button=ui_create(ui_t_button,test_handler)
+        ui_set_id(button,"button 2")
         ui_set_style(button,test_styler)
         ui_set_size(button,80,24,0,4)
         ui_set_text(button,"Button2")
@@ -33,6 +34,7 @@ if (argument0=="create") {
         ui_set_alt(button,"button 3","yep that's a button 3")
     ui_append_child(panel,button)
 
+    //show_message(ui_find_by_id("button 2"))
     //ui_destroy(panel)
 }
 if (argument0=="step") {

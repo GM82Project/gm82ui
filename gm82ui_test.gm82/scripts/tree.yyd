@@ -6,7 +6,9 @@
 	|ui_set_format
 	|ui_set_style
 	|ui_set_text
+	|ui_set_id
 	|ui_set_alt
+	|ui_find_by_id
 	|ui_append_child
 	|ui_remove_child
 	|ui_update

@@ -3,6 +3,7 @@
     fields:
 
     type: const
+    index: value
     enabled: bool
     state: string
     focus: bool
@@ -35,6 +36,7 @@
 var ui; ui=instance_create(0,0,global.__ui_obj)
 
 ui.type=argument[0]
+ui.index=undefined
 ui.enabled=true
 ui.state="up"
 ui.focus=0

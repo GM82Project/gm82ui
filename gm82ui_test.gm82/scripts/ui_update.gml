@@ -1,6 +1,8 @@
 global.__ui_event_focus=1
 global.__ui_event_mouse_left=mouse_check_button_pressed(mb_left)
 global.__ui_event_mouse_right=mouse_check_button_pressed(mb_right)
+global.__ui_event_mouse_scrollup=mouse_wheel_up()
+global.__ui_event_mouse_scrolldown=mouse_wheel_down()
 
 instance_activate_object(global.__ui_obj)
 ui_update_inner(argument0)

@@ -66,5 +66,17 @@ with (argument0) {
                 script_execute(handler,id,"right click")
             }
         }
+        if (global.__ui_event_mouse_scrollup) {
+            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
+                global.__ui_event_mouse_scrollup=0
+                script_execute(handler,id,"scroll up")
+            }
+        }
+        if (global.__ui_event_mouse_scrolldown) {
+            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
+                global.__ui_event_mouse_scrolldown=0
+                script_execute(handler,id,"scroll down")
+            }
+        }
     }
 }
