@@ -1,6 +1,16 @@
 
 ui_create
-ui_step
+ui_update
 ui_draw
 test_program
 ui_destroy
+ui_set_size
+ui_set_format
+ui_append_child
+ui_remove_child
+ui_set_style
+ui_set_enabled
+test_styler
+test_handler
+ui_set_text
+ui_set_alt

@@ -1,16 +1,54 @@
+///ui_create(type,[handler])
 /*
-    structure of an ui map element:
+    structure of an ui element:
+
+    type: const
+    enabled: bool
+    state: string
 
     children: dslist
 
+    handler: script
+    style: script
+    text: string
+    alt: string
+    help: string
+
+    x: int
+    y: int
     width: int
     height: int
     minwidth: int
     minheight: int
     maxwidth: int
     maxheight: int
+    margin: int
 
-    fitcontents: bool
-    resize: const mask
     align: const mask
+    resizable: const mask
+    overflow: const
 */
+
+var ui; ui=dsmap()
+
+dsmap(ui,"type",argument[0])
+dsmap(ui,"enabled",true)
+dsmap(ui,"state","up")
+
+dsmap(ui,"children",dslist())
+if (argument_count>1) dsmap(ui,"handler",argument[1]) else dsmap(ui,"handler",noone)
+
+dsmap(ui,"style",noone)
+dsmap(ui,"text","")
+dsmap(ui,"alt","")
+dsmap(ui,"help","")
+
+dsmap(ui,"x",0)
+dsmap(ui,"y",0)
+dsmap(ui,"width",0)
+dsmap(ui,"height",0)
+
+dsmap(ui,"align",ui_left+ui_top)
+dsmap(ui,"overflow",ui_over_spill)
+
+return ui
