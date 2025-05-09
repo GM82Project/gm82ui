@@ -1,18 +1,20 @@
-|ui_init
-|ui_create
-|ui_set_size
-|ui_set_format
-|ui_set_style
-|ui_set_enabled
-|ui_set_text
-|ui_set_alt
-|ui_append_child
-|ui_remove_child
-|ui_update
-|ui_update_inner
-|ui_draw
-|ui_draw_inner
-|ui_destroy
++ui
+	|ui_init
+	|ui_create
+	|ui_set_enabled
+	|ui_set_size
+	|ui_set_format
+	|ui_set_style
+	|ui_set_text
+	|ui_set_alt
+	|ui_append_child
+	|ui_remove_child
+	|ui_update
+	|ui_update_inner
+	|ui_draw
+	|ui_draw_inner
+	|ui_destroy
+	|ui_destroy_inner
 |test_program
 |test_styler
 |test_handler

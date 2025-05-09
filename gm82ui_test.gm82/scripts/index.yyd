@@ -17,3 +17,4 @@ ui_set_alt
 ui_init
 ui_draw
 ui_update
+ui_destroy_inner

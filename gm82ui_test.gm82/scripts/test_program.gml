@@ -32,6 +32,8 @@ if (argument0=="create") {
         ui_set_text(button,"Button3")
         ui_set_alt(button,"button 3","yep that's a button 3")
     ui_append_child(panel,button)
+
+    //ui_destroy(panel)
 }
 if (argument0=="step") {
     t=get_timer()
