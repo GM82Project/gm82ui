@@ -44,4 +44,27 @@ with (argument0) {
             parent.lph=padding
         }
     }
+
+    focus=0
+    if (global.__ui_event_focus) {
+        if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
+            global.__ui_event_focus=0
+            focus=1
+        }
+    }
+
+    if (script_exists(handler)) {
+        if (global.__ui_event_mouse_left) {
+            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
+                global.__ui_event_mouse_left=0
+                script_execute(handler,id,"left click")
+            }
+        }
+        if (global.__ui_event_mouse_right) {
+            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
+                global.__ui_event_mouse_right=0
+                script_execute(handler,id,"right click")
+            }
+        }
+    }
 }

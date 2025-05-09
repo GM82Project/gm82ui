@@ -1,3 +1,7 @@
+global.__ui_event_focus=1
+global.__ui_event_mouse_left=mouse_check_button_pressed(mb_left)
+global.__ui_event_mouse_right=mouse_check_button_pressed(mb_right)
+
 instance_activate_object(global.__ui_obj)
 ui_update_inner(argument0)
 instance_deactivate_object(global.__ui_obj)

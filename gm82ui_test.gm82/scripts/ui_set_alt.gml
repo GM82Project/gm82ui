@@ -1,4 +1,4 @@
-///ui_set_alt(alt,help)
+///ui_set_alt(element,alt,help)
 
 instance_activate_object(argument0)
 
