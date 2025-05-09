@@ -1,11 +1,12 @@
 ///ui_create(type,[handler])
 /*
-    structure of an ui element:
+    fields:
 
     type: const
     enabled: bool
     state: string
 
+    parent: dsmap
     children: dslist
 
     handler: script
@@ -27,6 +28,14 @@
     align: const mask
     resizable: const mask
     overflow: const
+
+    temporaries:
+
+    lxi: int - initial layout calc x
+    lyi: int - initial layout calc y
+    lx: int - current layout calc x
+    ly: int - current layout calc y
+    lh: int - current layout line height
 */
 
 var ui; ui=dsmap()
@@ -35,6 +44,7 @@ dsmap(ui,"type",argument[0])
 dsmap(ui,"enabled",true)
 dsmap(ui,"state","up")
 
+dsmap(ui,"parent",noone)
 dsmap(ui,"children",dslist())
 if (argument_count>1) dsmap(ui,"handler",argument[1]) else dsmap(ui,"handler",noone)
 

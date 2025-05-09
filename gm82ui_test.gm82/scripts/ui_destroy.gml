@@ -1,1 +1,1 @@
-//todo :3
+show_message("ui_destroy")

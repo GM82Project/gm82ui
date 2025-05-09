@@ -1,4 +1,6 @@
-var ui;ui=argument0
+var ui,style,children,i;
+
+ui=argument0
 
 if (!dsmap(ui,"enabled")) exit
 

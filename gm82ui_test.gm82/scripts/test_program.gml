@@ -9,8 +9,14 @@ if (argument0=="create") {
 
     button=ui_create(ui_t_button)
         ui_set_style(button,test_styler)
-        ui_set_size(button,64,24,4)
-        ui_set_text(button,"Button")
+        ui_set_size(button,80,24,4)
+        ui_set_text(button,"Button1")
+    ui_append_child(panel,button)
+
+    button=ui_create(ui_t_button)
+        ui_set_style(button,test_styler)
+        ui_set_size(button,80,24,4)
+        ui_set_text(button,"Button2")
     ui_append_child(panel,button)
 }
 if (argument0=="step") {
