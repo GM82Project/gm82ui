@@ -3,7 +3,7 @@
     fields:
 
     type: const
-    index: value
+    name: value
     enabled: bool
     state: string
     focus: bool
@@ -31,12 +31,17 @@
     resizable: const mask
     overflow: const
     direction: const
+
+    //element-specific features
+    window_title_side: const
+    window_title_size: int
+    button_sprite: sprite
 */
 
 var ui; ui=instance_create(0,0,global.__ui_obj)
 
 ui.type=argument[0]
-ui.index=undefined
+ui.name=undefined
 ui.enabled=true
 ui.state="up"
 ui.focus=0
@@ -59,6 +64,10 @@ ui.padding=0
 ui.align=ui_left+ui_up
 ui.overflow=ui_over_spill
 ui.direction=ui_right
+
+window_title_side=ui_up
+window_title_size=24
+button_sprite=noone
 
 instance_deactivate_object(ui)
 

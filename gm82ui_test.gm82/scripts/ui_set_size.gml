@@ -1,19 +1,12 @@
-///ui_set_size(element,width,height,margin,padding,[minwidth,minheight,maxwidth,maxheight])
+///ui_set_size(element,width,height,margin,padding)
 
-var ui;ui=argument[0]
+var ui;ui=argument0
 
 instance_activate_object(ui)
 
-ui.width=argument[1]
-ui.height=argument[2]
-ui.margin=argument[3]
-ui.padding=argument[4]
-
-if (argument_count==9) {
-    ui.minwidth=argument[5]
-    ui.minheight=argument[6]
-    ui.maxwidth=argument[7]
-    ui.maxheight=argument[8]
-}
+ui.width=argument1
+ui.height=argument2
+ui.margin=argument3
+ui.padding=argument4
 
 instance_deactivate_object(ui)

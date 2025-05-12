@@ -11,6 +11,7 @@ ui_t_spacer=3
 ui_t_label=4
 ui_t_break=5
 ui_t_container=6
+ui_t_window=7
 ui_over_hidden=0
 ui_over_scroll=1
 ui_over_scroll_h=2

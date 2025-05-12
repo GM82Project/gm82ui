@@ -18,5 +18,9 @@ ui_init
 ui_draw
 ui_update
 ui_destroy_inner
-ui_set_id
-ui_find_by_id
+ui_set_name
+ui_find_by_name
+test_styler_window
+ui_create_window
+ui_create_button
+ui_set_constraints

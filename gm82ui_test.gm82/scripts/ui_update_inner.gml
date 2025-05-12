@@ -21,6 +21,10 @@ with (argument0) {
     lph=0 //last pad hor
     lpv=0 //last pad vert
 
+    if (type==ui_t_window) {
+        if (window_title_side==ui_up) ly+=window_title_size
+    }
+
     i=0 repeat (ds_list_size(children)) {
         ui_update_inner(ds_list_find_value(children,i))
     i+=1}
