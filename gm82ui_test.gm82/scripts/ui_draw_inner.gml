@@ -8,7 +8,6 @@ with (argument0) {
 
     if (focus) {
         global.__ui_alt=alt
-        global.__ui_help=help
     }
 
     i=0 repeat (ds_list_size(children)) {

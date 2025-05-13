@@ -26,18 +26,13 @@ with (argument0) {
     lph=0 //last pad hor
     lpv=0 //last pad vert
 
-    if (overflow==ui_over_fitcontents) {
-        width=0
-        height=0
-    }
+    if (setwidth==ui_fit_contents) width=0 else width=setwidth
+    if (setheight==ui_fit_contents) height=0 else height=setheight
 
+    //for fill, we use the remaining space in the parent's box
+    if (setwidth==ui_fill_space) width=parent.width-(x-parent.x)
 
-    //window type; probably not using this moving forward
-    if (type==ui_t_window) {
-        if (window_title_side==ui_up) ly+=window_title_size
-    }
-
-
+    
     //update children recursively
     i=0 repeat (ds_list_size(children)) {
         if (!ui_update_inner(ds_list_find_value(children,i))) exit
@@ -45,10 +40,8 @@ with (argument0) {
 
 
     //for fitcontents, we resize to fit the contents
-    if (overflow==ui_over_fitcontents) {
-        width=max(width,lx+lph+margin)
-        height=max(height,ly+lh+lp+margin)
-    }
+    if (setwidth==ui_fit_contents) width=max(width,lx+lph+margin-x)
+    if (setheight==ui_fit_contents) height=max(height,ly+lh+lp+margin-y)
 
 
     //layout resolver

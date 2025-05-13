@@ -10,7 +10,7 @@ ui_append_child
 ui_remove_child
 ui_set_style
 ui_set_enabled
-test_styler
+styler_button
 button_handler
 ui_set_text
 ui_set_alt
@@ -20,11 +20,12 @@ ui_update
 ui_destroy_inner
 ui_set_name
 ui_find_by_name
-test_styler_window
+
 ui_create_window
 ui_create_button
 ui_set_constraints
 
 draw_button_ext
 window_handler
-test_styler_label
+styler_label
+styler_tooltip

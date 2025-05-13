@@ -4,8 +4,8 @@ var ui;ui=argument0
 
 instance_activate_object(ui)
 
-ui.width=argument1
-ui.height=argument2
+ui.setwidth=argument1
+ui.setheight=argument2
 ui.margin=argument3
 ui.padding=argument4
 

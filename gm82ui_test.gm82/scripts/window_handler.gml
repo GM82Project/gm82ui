@@ -7,6 +7,9 @@ switch (argument[1]) {
             x=mouse_x-offset_x
             y=mouse_y-offset_y
         }
+        if (name=="close") {
+            if (state=="down") and not (focus) state="up"
+        }
     }break
     case "left click": {
         if (name=="title") {
@@ -23,8 +26,8 @@ switch (argument[1]) {
             parent.state="none"
         }
         if (name=="close") {
-            state="up"
-            ui_destroy(parent)
+            if (state=="down")
+                ui_destroy(parent)
         }
     }break
 }

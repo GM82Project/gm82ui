@@ -1,3 +1,5 @@
+///ui_update(ui)
+
 global.__ui_event_focus=1
 global.__ui_event_mouse_left=mouse_check_button_pressed(mb_left)
 global.__ui_event_mouse_left_rel=mouse_check_button_released(mb_left)

@@ -22,9 +22,11 @@
 	|ui_destroy
 	|ui_destroy_inner
 |test_program
-|test_styler_window
-|test_styler
-|test_styler_label
-|button_handler
-|window_handler
++stylers
+	|styler_button
+	|styler_tooltip
+	|styler_label
++handlers
+	|button_handler
+	|window_handler
 |draw_button_ext

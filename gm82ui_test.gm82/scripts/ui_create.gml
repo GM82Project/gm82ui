@@ -56,6 +56,8 @@ ui.alt=""
 ui.help=""
 ui.x=0
 ui.y=0
+ui.setwidth=0
+ui.setheight=0
 ui.width=0
 ui.height=0
 ui.margin=0
@@ -67,9 +69,8 @@ ui.direction=ui_right
 
 ui.color=global.ui_col_main
 
-window_title_side=ui_up
-window_title_size=24
-button_sprite=noone
+ui.button_sprite=noone
+ui.button_frame=0
 
 instance_deactivate_object(ui)
 
