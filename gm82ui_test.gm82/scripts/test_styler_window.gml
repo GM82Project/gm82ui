@@ -2,7 +2,9 @@ var ui;
 
 ui=argument0
 
-draw_rect(ui.x,ui.y,ui.width,ui.height,$ffffff)
-draw_rect(ui.x,ui.y,ui.width,ui.window_title_size,$c00000)
+with (ui) {
+    draw_button_ext(x,y,width,window_title_size,1,$880088)
+    draw_button_ext(x,y+window_title_size,width,height-window_title_size,1,global.ui_col_main)
+}
 
 //ui.window_title_side

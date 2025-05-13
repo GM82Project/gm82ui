@@ -1,3 +1,6 @@
+instance_activate_object(argument0)
+if (!instance_exists(argument0)) exit
+
 global.__ui_alt=""
 global.__ui_help=""
 

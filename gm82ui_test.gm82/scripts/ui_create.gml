@@ -43,7 +43,7 @@ var ui; ui=instance_create(0,0,global.__ui_obj)
 ui.type=argument[0]
 ui.name=undefined
 ui.enabled=true
-ui.state="up"
+ui.state="none"
 ui.focus=0
 
 ui.parent=noone
@@ -64,6 +64,8 @@ ui.padding=0
 ui.align=ui_left+ui_up
 ui.overflow=ui_over_spill
 ui.direction=ui_right
+
+ui.color=global.ui_col_main
 
 window_title_side=ui_up
 window_title_size=24

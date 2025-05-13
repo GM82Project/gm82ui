@@ -24,4 +24,7 @@
 |test_program
 |test_styler_window
 |test_styler
-|test_handler
+|test_styler_label
+|button_handler
+|window_handler
+|draw_button_ext
