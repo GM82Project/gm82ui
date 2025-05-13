@@ -1,20 +1,29 @@
-///ui_update_inner(element)
+///ui_update_inner(element,x,y,rotation,xscale,yscale)
 var i;
 
 if (!instance_exists(argument0)) return false
 
 with (argument0) {
-    if (!enabled) exit
-
-
     //pre-update handler
     if (script_exists(handler)) script_execute(handler,id,"step")
 
 
     //reset to defaults
-    if (parent!=noone) {
+    if (parent==noone) {
+        //master
+        if (argument1!=ui_preserve) x=argument1
+        if (argument2!=ui_preserve) y=argument2
+        rotation=argument3
+        xscale=argument4
+        yscale=argument5
+
+        tmouse_x=x+pivot_pos_x(mouse_x-x,mouse_y-y,-rotation)/xscale
+        tmouse_y=y+pivot_pos_y(mouse_x-x,mouse_y-y,-rotation)/yscale
+    } else {
         x=parent.lx+padding
         y=parent.ly+padding
+        tmouse_x=parent.tmouse_x
+        tmouse_y=parent.tmouse_y
     }
 
     lxi=x+margin
@@ -35,7 +44,7 @@ with (argument0) {
     
     //update children recursively
     i=0 repeat (ds_list_size(children)) {
-        if (!ui_update_inner(ds_list_find_value(children,i))) exit
+        if (!ui_update_inner(ds_list_find_value(children,i),argument1,argument2,argument3,argument4,argument5)) exit
     i+=1}
 
 
@@ -57,8 +66,10 @@ with (argument0) {
             parent.lp=0
         } else {
             //add to line
-            parent.lx+=width+max(padding,parent.lp)
-            parent.lph=padding
+            //if (parent.direction1==ui_right) {
+                parent.lx+=width+max(padding,parent.lp)
+                parent.lph=padding
+            //}
         }
     }
 
@@ -66,49 +77,43 @@ with (argument0) {
     //handle focus
     focus=0
     if (global.__ui_event_focus) {
-        if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
+        if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
             global.__ui_event_focus=0
-            focus=1
+            focus=enabled
         }
     }
 
 
     //event firing
-    if (script_exists(handler)) {
+    if (script_exists(handler)) if (instance_exists(argument0)) if (enabled) {
         if (global.__ui_event_mouse_left) {
-            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
-                global.__ui_event_mouse_left=0
-                if (instance_exists(argument0)) script_execute(handler,id,"left click",mouse_x,mouse_y)
+            if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
+                if (instance_exists(argument0)) if (script_execute(handler,id,"left click",tmouse_x,tmouse_y)) global.__ui_event_mouse_left=0
             }
         }
         if (global.__ui_event_mouse_left_rel) {
-            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
-                global.__ui_event_mouse_left_rel=0
-                if (instance_exists(argument0)) script_execute(handler,id,"left release",mouse_x,mouse_y)
+            if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
+                if (instance_exists(argument0)) if (script_execute(handler,id,"left release",tmouse_x,tmouse_y)) global.__ui_event_mouse_left_rel=0
             }
         }
         if (global.__ui_event_mouse_right) {
-            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
-                global.__ui_event_mouse_right=0
-                if (instance_exists(argument0)) script_execute(handler,id,"right click",mouse_x,mouse_y)
+            if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
+                if (instance_exists(argument0)) if (script_execute(handler,id,"right click",tmouse_x,tmouse_y)) global.__ui_event_mouse_right=0
             }
         }
         if (global.__ui_event_mouse_right_rel) {
-            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
-                global.__ui_event_mouse_right_rel=0
-                if (instance_exists(argument0)) script_execute(handler,id,"right release",mouse_x,mouse_y)
+            if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
+                if (instance_exists(argument0)) if (script_execute(handler,id,"right release",tmouse_x,tmouse_y)) global.__ui_event_mouse_right_rel=0
             }
         }
         if (global.__ui_event_mouse_scrollup) {
-            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
-                global.__ui_event_mouse_scrollup=0
-                if (instance_exists(argument0)) script_execute(handler,id,"scroll up")
+            if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
+                if (instance_exists(argument0)) if (script_execute(handler,id,"scroll up")) global.__ui_event_mouse_scrollup=0
             }
         }
         if (global.__ui_event_mouse_scrolldown) {
-            if (point_in_rectangle(mouse_x,mouse_y,x,y,x+width,y+height)) {
-                global.__ui_event_mouse_scrolldown=0
-                if (instance_exists(argument0)) script_execute(handler,id,"scroll down")
+            if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
+                if (instance_exists(argument0)) if (script_execute(handler,id,"scroll down")) global.__ui_event_mouse_scrolldown=0
             }
         }
 

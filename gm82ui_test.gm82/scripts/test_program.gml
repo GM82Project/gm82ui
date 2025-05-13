@@ -1,11 +1,13 @@
 if (argument0=="create") {
     ui_init()
 
-    window=ui_create_window(400,300,"Window")
+    window=ui_create_window(400,300,"Window",window_handler)
 
     panel=ui_create(ui_t_panel)
     ui_set_size(panel,ui_fill_space,ui_fit_contents,4,0)
     ui_set_style(panel,styler_button)
+    ui_set_variable(panel,"button_sprite",noone)
+    ui_set_variable(panel,"color",global.ui_col_main)
     ui_append_child(window,panel)
 
     button=ui_create_button("Button1",button_handler)
@@ -31,7 +33,6 @@ if (argument0=="create") {
 }
 if (argument0=="draw") {
     t=get_timer()
-    ui_update(window)
-    room_caption=string((get_timer()-t)/1000) +"ms"
+    ui_update(window,ui_preserve,ui_preserve,-45,1,1) room_caption=string((get_timer()-t)/1000) +"ms"
     ui_draw(window,styler_tooltip)
 }

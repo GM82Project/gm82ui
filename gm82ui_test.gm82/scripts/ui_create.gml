@@ -27,15 +27,11 @@
     maxheight: int
     margin: int
 
-    align: const mask
     resizable: const mask
-    overflow: const
-    direction: const
-
-    //element-specific features
-    window_title_side: const
-    window_title_size: int
-    button_sprite: sprite
+    overflow_h: const
+    overflow_v: const
+    direction1: const
+    direction2: const
 */
 
 var ui; ui=instance_create(0,0,global.__ui_obj)
@@ -63,14 +59,11 @@ ui.height=0
 ui.margin=0
 ui.padding=0
 
-ui.align=ui_left+ui_up
-ui.overflow=ui_over_spill
-ui.direction=ui_right
-
-ui.color=global.ui_col_main
-
-ui.button_sprite=noone
-ui.button_frame=0
+ui.resizable=ui_no
+ui.overflow_h=ui_over_spill
+ui.overflow_v=ui_over_spill
+ui.direction1=ui_right
+ui.direction2=ui_down
 
 instance_deactivate_object(ui)
 

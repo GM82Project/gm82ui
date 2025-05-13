@@ -9,6 +9,8 @@ instance_activate_object(ui)
 
 ui.text=argument[0]
 ui.handler=argument[1]
+
+ui.button_sprite=noone
 if (argument_count==4) {
     ui.button_sprite=argument[2]
     ui.button_frame=argument[3]

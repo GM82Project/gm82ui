@@ -6,7 +6,17 @@ if (!instance_exists(argument[0])) exit
 global.__ui_alt=""
 
 instance_activate_object(global.__ui_obj)
-ui_draw_inner(argument0)
+
+with (argument0) {
+    d3d_transform_stack_push()
+    d3d_transform_add_translation(-x,-y,0)
+    d3d_transform_add_scaling(xscale,yscale,1)
+    d3d_transform_add_rotation_z(rotation)
+    d3d_transform_add_translation(x,y,0)
+    ui_draw_inner(id)
+    d3d_transform_stack_pop()
+}
+
 instance_deactivate_object(global.__ui_obj)
 
 if (global.__ui_alt!="") {

@@ -1,7 +1,6 @@
 ///event_handler(element,event,[data])
 
-with (argument[0])
-switch (argument[1]) {
+with (argument[0]) switch (argument[1]) {
     case "step": {
         if (state=="grab") {
             x=mouse_x-offset_x
@@ -14,20 +13,25 @@ switch (argument[1]) {
     case "left click": {
         if (name=="title") {
             parent.state="grab"
-            parent.offset_x=argument[2]-parent.x
-            parent.offset_y=argument[3]-parent.y
+            parent.offset_x=mouse_x-parent.x
+            parent.offset_y=mouse_y-parent.y
         }
         if (name=="close") {
             state="down"
         }
+        return true
     }break
     case "left release": {
         if (name=="title") {
             parent.state="none"
         }
         if (name=="close") {
-            if (state=="down")
+            if (state=="down") {
                 ui_destroy(parent)
+            }
         }
+        return true
     }break
 }
+
+return false

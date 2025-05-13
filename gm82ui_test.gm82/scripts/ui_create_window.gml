@@ -1,32 +1,24 @@
-///ui_create_window(width,height,caption,[handler])
-var ui;
+///ui_create_window(width,height,caption,handler)
 
-if (argument_count<2) {show_error("woaps",0) return noone}
+var window;window=ui_create(ui_t_panel,argument3)
+ui_set_name(window,"window")
+ui_set_size(window,argument0,argument1,0,0)
+ui_set_format(window,ui_no,ui_left+ui_right,ui_over_hidden,ui_over_spill,ui_left,ui_down)
 
-ui=ui_create(ui_t_panel,window_handler)
-ui_set_name(ui,"window")
-ui_set_size(ui,argument[0],argument[1],0,0)
+var title;title=ui_create_button(argument[2],argument3)
+ui_set_size(title,ui_fill_space,24,0,0)
+ui_set_style(title,styler_button)
+ui_set_name(title,"title")
+ui_set_variable(title,"color",$880088)
+ui_append_child(window,title)
 
-instance_activate_object(ui)
-
-if (argument_count>3) ui.handler=argument[3]
-
-button=ui_create_button(argument[2],window_handler)
-ui_set_size(button,argument[0]-24,24,0,0)
-ui_set_style(button,styler_button)
-ui_set_name(button,"title")
-instance_activate_object(button)
-button.color=$880088
-ui_append_child(ui,button)
-
-button=ui_create_button("",window_handler,sprIcons,0)
+var button;button=ui_create_button("",argument3,sprIcons,0)
 ui_set_size(button,24,24,0,0)
 ui_set_name(button,"close")
 ui_set_alt(button,"Close","Closes the window.")
 ui_set_style(button,styler_button)
-ui_append_child(ui,button)
+ui_append_child(window,button)
 
-ui_append_child(ui,ui_create(ui_t_break))
+ui_append_child(window,ui_t_break)
 
-
-return ui
+return window

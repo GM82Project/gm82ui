@@ -1,4 +1,4 @@
-///ui_update(ui)
+///ui_update(ui,x,y,rotation,xscale,yscale)
 
 global.__ui_event_focus=1
 global.__ui_event_mouse_left=mouse_check_button_pressed(mb_left)
@@ -9,5 +9,5 @@ global.__ui_event_mouse_scrollup=mouse_wheel_up()
 global.__ui_event_mouse_scrolldown=mouse_wheel_down()
 
 instance_activate_object(global.__ui_obj)
-ui_update_inner(argument0)
+ui_update_inner(argument0,argument1,argument2,argument3,argument4,argument5)
 instance_deactivate_object(global.__ui_obj)
