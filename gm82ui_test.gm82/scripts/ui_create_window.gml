@@ -3,13 +3,13 @@
 var window;window=ui_create(ui_t_panel,argument3)
 ui_set_name(window,"window")
 ui_set_size(window,argument0,argument1,0,0)
-ui_set_format(window,ui_no,ui_left+ui_right,ui_over_hidden,ui_over_spill,ui_left,ui_down)
+ui_set_layout(window,ui_no,ui_over_hidden,ui_over_spill,ui_right,ui_down)
 
 var title;title=ui_create_button(argument[2],argument3)
-ui_set_size(title,ui_fill_space,24,0,0)
+ui_set_size(title,400-24,24,0,0)
 ui_set_style(title,styler_button)
 ui_set_name(title,"title")
-ui_set_variable(title,"color",$880088)
+ui_set_custom(title,"color",$880088)
 ui_append_child(window,title)
 
 var button;button=ui_create_button("",argument3,sprIcons,0)

@@ -1,6 +1,4 @@
-///ui_update(ui,[x,y,[rotation,xscale,yscale]])
-
-if (argument_count!=1 and argument_count!=3 and argument_count!=6) {show_error("bruh",0) exit}
+///ui_process_messages(element)
 
 global.__ui_event_focus=1
 global.__ui_event_mouse_left=mouse_check_button_pressed(mb_left)
@@ -10,22 +8,6 @@ global.__ui_event_mouse_right_rel=mouse_check_button_released(mb_right)
 global.__ui_event_mouse_scrollup=mouse_wheel_up()
 global.__ui_event_mouse_scrolldown=mouse_wheel_down()
 
-dx=ui_preserve
-dy=ui_preserve
-rot=ui_preserve
-xsc=ui_preserve
-ysc=ui_preserve
-
-if (argument_count>=3) {
-    dx=argument[1]
-    dy=argument[2]
-}
-if (argument_count==6) {
-    rot=argument[3]
-    xsc=argument[4]
-    ysc=argument[5]
-}
-
 instance_activate_object(global.__ui_obj)
-ui_update_inner(argument[0],dx,dy,rot,xsc,ysc)
+ui_process_inner(argument0)
 instance_deactivate_object(global.__ui_obj)
