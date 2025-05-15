@@ -17,6 +17,11 @@
 	|ui_find_by_name
 	|ui_append_child
 	|ui_remove_child
+	+messages
+		|ui_push_default_mouse_messages
+		|ui_push_message
+		|ui_eat_message
+		|ui_fire_handler
 	+updates
 		|ui_process_messages
 		|ui_process_inner
@@ -26,7 +31,6 @@
 		|ui_draw_inner
 	|ui_destroy
 	|ui_destroy_inner
-|test_program
 +stylers
 	|styler_button
 	|styler_tooltip
@@ -34,4 +38,5 @@
 +handlers
 	|button_handler
 	|window_handler
+|test_program
 |draw_button_ext

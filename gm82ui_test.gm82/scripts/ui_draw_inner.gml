@@ -2,7 +2,7 @@
 var i;
 
 with (argument0) {
-    if (script_exists(style)) script_execute(style,id)
+    if (style!=noone) script_execute(style,id)
 
     if (focus) global.__ui_alt=alt
 

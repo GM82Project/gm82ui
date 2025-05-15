@@ -1,6 +1,8 @@
-///event_handler(element,event,[data])
+///event_handler(event,data)
 
-with (argument[0]) switch (argument[1]) {
+var data;data=argument1
+
+switch (argument0) {
     case "step": {
         if (state=="down") and not (focus) state="up"
     }break

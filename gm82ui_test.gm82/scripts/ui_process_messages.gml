@@ -1,13 +1,11 @@
 ///ui_process_messages(element)
 
-global.__ui_event_focus=1
-global.__ui_event_mouse_left=mouse_check_button_pressed(mb_left)
-global.__ui_event_mouse_left_rel=mouse_check_button_released(mb_left)
-global.__ui_event_mouse_right=mouse_check_button_pressed(mb_right)
-global.__ui_event_mouse_right_rel=mouse_check_button_released(mb_right)
-global.__ui_event_mouse_scrollup=mouse_wheel_up()
-global.__ui_event_mouse_scrolldown=mouse_wheel_down()
-
 instance_activate_object(global.__ui_obj)
 ui_process_inner(argument0)
 instance_deactivate_object(global.__ui_obj)
+
+//clear all messages
+var key;key=ds_map_find_first(global.__ui_messages) repeat (ds_map_size(global.__ui_messages)) {
+    ds_list_destroy(ds_map_find_value(global.__ui_messages,key))
+key=ds_map_find_next(global.__ui_messages,key)}
+ds_map_clear(global.__ui_messages)

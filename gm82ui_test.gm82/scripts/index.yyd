@@ -33,3 +33,10 @@ ui_set_custom
 ui_set_handler
 ui_process_messages
 ui_process_inner
+ui_push_message
+ui_push_default_mouse_messages
+ui_eat_message
+
+ui_fire_handler
+
+

@@ -1,4 +1,5 @@
 global.__ui_obj=object_add()
+global.__ui_messages=ds_map_create()
 
 var dir,theme;
 

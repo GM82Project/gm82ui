@@ -1,10 +1,12 @@
-///event_handler(element,event,[data])
+///event_handler(event,data)
 
-with (argument[0]) switch (argument[1]) {
+var data;data=argument1
+
+switch (argument0) {
     case "step": {
         if (state=="grab") {
-            x=mouse_x-offset_x
-            y=mouse_y-offset_y
+            x=tmouse_x-offset_x
+            y=tmouse_y-offset_y
         }
         if (name=="close") {
             if (state=="down") and not (focus) state="up"
@@ -13,8 +15,8 @@ with (argument[0]) switch (argument[1]) {
     case "left click": {
         if (name=="title") {
             parent.state="grab"
-            parent.offset_x=mouse_x-parent.x
-            parent.offset_y=mouse_y-parent.y
+            parent.offset_x=tmouse_x-parent.x
+            parent.offset_y=tmouse_y-parent.y
         }
         if (name=="close") {
             state="down"
