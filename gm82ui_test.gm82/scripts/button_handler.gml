@@ -6,6 +6,7 @@ switch (argument0) {
     case "step": {
         if (state=="down") and not (focus) state="up"
     }break
+
     case "left click": {
         state="down"
         return true

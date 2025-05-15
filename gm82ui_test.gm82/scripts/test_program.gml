@@ -36,7 +36,11 @@ if (argument0=="create") {
 if (argument0=="draw") {
     ui_push_default_mouse_messages()
     t=get_timer()
+    global.move_window=false
     ui_process_messages(window)
+
+    if (global.move_window) ui_compute_layout(window)
+
     room_caption=string((get_timer()-t)/1000) +"ms"
     ui_draw(window,styler_tooltip)
 }
