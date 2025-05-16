@@ -1,5 +1,6 @@
 ui_no=0
 ui_yes=1
+ui_default=-99999
 ui_left=2
 ui_right=4
 ui_up=8
@@ -18,4 +19,3 @@ ui_t_radio=6
 ui_over_spill=0
 ui_over_hidden=1
 ui_over_scroll=2
-ui_preserve=-99999

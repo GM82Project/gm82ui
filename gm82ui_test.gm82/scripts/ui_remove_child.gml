@@ -1,9 +1,12 @@
-///ui_remove_child(element,child)
+///ui_remove_child(element)
 
 instance_activate_object(argument0)
-instance_activate_object(argument1)
 
-var p;p=ds_list_find_index(argument0.children,argument1)
+if (argument0.parent==noone) exit
+
+instance_activate_object(argument0.parent)
+
+var p;p=ds_list_find_index(argument0.parent.children,argument1.id)
 
 if (p==-1) {
     show_error("ui_remove_child failed",false)
@@ -14,4 +17,4 @@ if (p==-1) {
 instance_deactivate_object(argument0)
 instance_deactivate_object(argument1)
 
-ui_mark_stale(element)
+__gm82ui_mark_stale(element)

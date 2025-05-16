@@ -1,13 +1,21 @@
 ///ui_process_messages(element)
 
 instance_activate_object(global.__ui_obj)
-ui_process_inner(argument0)
+
+if (!instance_exists(argument0)) exit
+
+if (argument0.object_index!=global.__ui_obj) {
+    show_error("in function ui_process_messages: instance is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
+    exit
+}
+
+__gm82ui_process_inner(argument0)
 
 //handle death
 with (global.__ui_obj) if (dead) {
-    ui_fire_handler("destroy",noone)
-    with (parent) ui_remove_child(id,other.id)
-    ui_destroy_inner(self)
+    __gm82ui_fire_handler("destroy",noone)
+    ui_orphan(self)
+    __gm82ui_destroy_inner(self)
 }
 
 instance_deactivate_object(global.__ui_obj)

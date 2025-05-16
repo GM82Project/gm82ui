@@ -1,4 +1,4 @@
-///ui_find_by_name(name)
+///ui_get_by_name(name)
 
 instance_activate_object(global.__ui_obj)
 

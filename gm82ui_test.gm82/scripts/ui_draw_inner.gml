@@ -1,5 +1,6 @@
 with (argument0) {
-    if (style!=noone) script_execute(style,id)
+    if (style==ui_default) __gm82ui_default_styler(id)
+    else if (style!=noone) script_execute(style,id)
 
     if (focus) global.__ui_alt=alt
 

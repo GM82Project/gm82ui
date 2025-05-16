@@ -1,12 +1,17 @@
 ///ui_set_constraints(element,minwidth,minheight,maxwidth,maxheight)
 
-var ui;ui=argument0
+instance_activate_object(argument0)
 
-instance_activate_object(ui)
+if (!instance_exists(argument0)) exit
 
-ui.minwidth=argument1
-ui.minheight=argument2
-ui.maxwidth=argument3
-ui.maxheight=argument4
+if (argument0.object_index!=global.__ui_obj) {
+    show_error("in function ui_set_constraints: instance is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
+    exit
+}
 
-instance_deactivate_object(ui)
+argument0.minwidth=argument1
+argument0.minheight=argument2
+argument0.maxwidth=argument3
+argument0.maxheight=argument4
+
+instance_deactivate_object(argument0)

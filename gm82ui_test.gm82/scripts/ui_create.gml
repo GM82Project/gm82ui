@@ -34,6 +34,18 @@
     direction2: const
 */
 
+if (argument[0]<0 or argument[0]>6) {
+    show_error("in function ui_create: invalid type ("+string(argument[0])+")",0)
+    exit
+}
+
+if (argument_count>1) {
+    if (argument[1]!=ui_default) if (!script_exists(argument[1])) {
+        show_error("in function ui_create: invalid handler ("+string(argument[1])+")",0)
+        exit
+    }
+}
+
 var ui; ui=instance_create(0,0,global.__ui_obj)
 
 ui.type=argument[0]
@@ -47,7 +59,7 @@ ui.parent=noone
 ui.children=ds_list_create()
 if (argument_count>1) ui.handler=argument[1] else ui.handler=noone
 
-ui.style=noone
+ui.style=ui_default
 ui.text=""
 ui.alt=""
 ui.help=""

@@ -33,7 +33,7 @@ with (argument0) {
     
     //update children recursively
     var i;i=0 repeat (ds_list_size(children)) {
-        if (!layout_engine(ds_list_find_value(children,i),argument1,argument2,argument3,argument4,argument5)) exit
+        if (!__gm82ui_layout_engine(ds_list_find_value(children,i),argument1,argument2,argument3,argument4,argument5)) exit
     i+=1}
 
 

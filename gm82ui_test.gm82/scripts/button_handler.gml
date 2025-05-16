@@ -1,4 +1,4 @@
-///event_handler(event,data)
+//button_handler(event,data)
 
 var data;data=argument1
 
@@ -14,7 +14,6 @@ switch (argument0) {
     case "left release": {
         if (state=="down") {
             state="up"
-            show_message("activate")
             return true
         }
     }break
