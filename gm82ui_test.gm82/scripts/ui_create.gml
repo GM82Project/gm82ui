@@ -40,7 +40,8 @@ ui.type=argument[0]
 ui.name=undefined
 ui.enabled=true
 ui.state="none"
-ui.focus=0
+ui.focus=false
+ui.dead=false
 
 ui.parent=noone
 ui.children=ds_list_create()
@@ -64,6 +65,10 @@ ui.overflow_h=ui_over_spill
 ui.overflow_v=ui_over_spill
 ui.direction1=ui_right
 ui.direction2=ui_down
+
+ui.image_blend=global.ui_col_main
+
+ui.layout_stale=false
 
 instance_deactivate_object(ui)
 

@@ -1,4 +1,4 @@
-///ui_set_variable(element,variable,value)
+///ui_set_custom(element,variable,value)
 
 instance_activate_object(argument0)
 

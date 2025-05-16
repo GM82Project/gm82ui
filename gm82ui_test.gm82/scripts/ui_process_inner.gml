@@ -1,8 +1,6 @@
 ///ui_process_inner(element)
 var i,mx,my,l;
 
-if (!instance_exists(argument0)) return false
-
 with (argument0) {
     //pre-update handler
     ui_fire_handler("step",noone)
@@ -33,12 +31,12 @@ with (argument0) {
 
     //update children recursively
     i=0 repeat (ds_list_size(children)) {
-        if (!ui_process_inner(ds_list_find_value(children,i))) exit
+        ui_process_inner(ds_list_find_value(children,i))
     i+=1}
 
 
     //handle events
-    if (instance_exists(id)) if (enabled) {
+    if (enabled) {
         //mouse collision
         if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
             //focus
@@ -63,5 +61,3 @@ with (argument0) {
 
     ui_fire_handler("end step",noone)
 }
-
-return instance_exists(argument0)

@@ -8,7 +8,8 @@ switch (argument0) {
             with (parent) if (state=="grab") {
                 x=tmouse_x-offset_x
                 y=tmouse_y-offset_y
-                global.move_window=true
+                layout_stale=true
+                if (!ui_has_message("left button")) state="none"
             }
         }
         if (name=="close") {
@@ -29,12 +30,6 @@ switch (argument0) {
         }
     }break
     case "left release": {
-        if (name=="title") {
-            with (parent) if (state=="grab") {
-                state="none"
-                return true
-            }
-        }
         if (name=="close") {
             if (state=="down") {
                 ui_destroy(parent)

@@ -2,8 +2,8 @@
 
 with (argument0) {
     down=(state!="up")
-    draw_button_ext(x,y,width,height,!down,color)
-    if (button_sprite!=noone) draw_sprite(button_sprite,button_frame,x+width div 2+down,y+height div 2+down)
+    draw_button_ext(x,y,width,height,!down,image_blend)
+    if (type==ui_t_button) if (button_sprite!=noone) draw_sprite(button_sprite,button_frame,x+width div 2+down,y+height div 2+down)
     draw_set_halign(1)
     draw_set_valign(1)
     draw_set_color(global.ui_col_text)

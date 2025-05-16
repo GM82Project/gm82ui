@@ -13,3 +13,5 @@ if (p==-1) {
 
 instance_deactivate_object(argument0)
 instance_deactivate_object(argument1)
+
+ui_mark_stale(element)

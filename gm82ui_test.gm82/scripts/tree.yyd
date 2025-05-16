@@ -1,26 +1,27 @@
 +gm82ui
 	|ui_init
 	|ui_create
-	+specific
-		|ui_create_window
-		|ui_create_button
 	|ui_set_enabled
 	|ui_set_size
 	|ui_set_constraints
 	|ui_set_layout
 	|ui_set_style
 	|ui_set_text
-	|ui_set_custom
+	|ui_set_blend
+	|ui_set_variable
 	|ui_set_handler
 	|ui_set_alt
 	|ui_set_name
 	|ui_find_by_name
+	|ui_mark_stale
 	|ui_append_child
 	|ui_remove_child
+	|ui_destroy
 	+messages
 		|ui_push_default_mouse_messages
 		|ui_push_message
 		|ui_eat_message
+		|ui_has_message
 		|ui_fire_handler
 	+updates
 		|ui_process_messages
@@ -29,14 +30,14 @@
 		|ui_compute_inner
 		|ui_draw
 		|ui_draw_inner
-	|ui_destroy
-	|ui_destroy_inner
+		|ui_destroy_inner
 +stylers
 	|styler_button
 	|styler_tooltip
 	|styler_label
+	|draw_button_ext
 +handlers
 	|button_handler
 	|window_handler
+|create_button
 |test_program
-|draw_button_ext

@@ -18,6 +18,4 @@ if (argument_count==6) {
     ysc=argument[5]
 }
 
-instance_activate_object(global.__ui_obj)
 ui_compute_inner(argument[0],dx,dy,rot,xsc,ysc)
-instance_deactivate_object(global.__ui_obj)

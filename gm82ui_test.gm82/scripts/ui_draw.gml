@@ -8,6 +8,7 @@ global.__ui_alt=""
 instance_activate_object(global.__ui_obj)
 
 with (argument0) {
+    if (layout_stale) ui_compute_layout(self)
     d3d_transform_stack_push()
     d3d_transform_add_translation(-x,-y,0)
     d3d_transform_add_scaling(image_xscale,image_yscale,1)

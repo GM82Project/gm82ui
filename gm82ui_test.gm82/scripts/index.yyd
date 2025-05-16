@@ -21,15 +21,15 @@ ui_destroy_inner
 ui_set_name
 ui_find_by_name
 
-ui_create_window
-ui_create_button
+
+create_button
 ui_set_constraints
 
 draw_button_ext
 window_handler
 styler_label
 styler_tooltip
-ui_set_custom
+ui_set_variable
 ui_set_handler
 ui_process_messages
 ui_process_inner
@@ -40,3 +40,6 @@ ui_eat_message
 ui_fire_handler
 
 
+ui_set_blend
+ui_mark_stale
+ui_has_message

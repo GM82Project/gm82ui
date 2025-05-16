@@ -2,6 +2,14 @@
 
 instance_activate_object(global.__ui_obj)
 ui_process_inner(argument0)
+
+//handle death
+with (global.__ui_obj) if (dead) {
+    ui_fire_handler("destroy",noone)
+    with (parent) ui_remove_child(id,other.id)
+    ui_destroy_inner(self)
+}
+
 instance_deactivate_object(global.__ui_obj)
 
 //clear all messages

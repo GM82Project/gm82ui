@@ -9,7 +9,7 @@ var title;title=ui_create_button(argument[2],argument3)
 ui_set_size(title,400-24,24,0,0)
 ui_set_style(title,styler_button)
 ui_set_name(title,"title")
-ui_set_custom(title,"color",$880088)
+ui_set_blend(title,$880088,1)
 ui_append_child(window,title)
 
 var button;button=ui_create_button("",argument3,sprIcons,0)
