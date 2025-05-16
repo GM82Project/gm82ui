@@ -4,7 +4,7 @@ if (argument0=="create") {
     window=ui_create(ui_t_panel,window_handler)
     ui_set_name(window,"window")
     ui_set_size(window,400,300,0,0)
-    ui_set_layout(window,ui_no,ui_over_hidden,ui_over_spill,ui_right,ui_down)
+    ui_set_format(window,ui_no,ui_over_hidden,ui_over_spill,ui_right,ui_down)
 
     var title;title=create_button("Window",window_handler)
     ui_set_size(title,400-24,24,0,0)

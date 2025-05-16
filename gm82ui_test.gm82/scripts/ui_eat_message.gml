@@ -1,4 +1,3 @@
-///ui_eat_message(message)
 var l;
 
 if (ds_map_exists(global.__ui_messages,argument0)) {

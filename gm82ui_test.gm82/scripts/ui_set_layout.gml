@@ -1,13 +1,17 @@
-///ui_set_format(element,resize,overflow_h,overflow_v,direction1,direction2)
+///ui_set_layout(ui,x,y,[rotation,xscale,yscale])
 
-var ui;ui=argument0
+if (argument_count!=3 and argument_count!=6) {show_error("bruh",0) exit}
 
-instance_activate_object(ui)
+rot=ui_preserve
+xsc=ui_preserve
+ysc=ui_preserve
+dx=argument[1]
+dy=argument[2]
 
-ui.resizable=argument1
-ui.overflow_h=argument2
-ui.overflow_v=argument3
-ui.direction1=argument4
-ui.direction2=argument5
+if (argument_count==6) {
+    rot=argument[3]
+    xsc=argument[4]
+    ysc=argument[5]
+}
 
-instance_deactivate_object(ui)
+layout_engine(argument[0],dx,dy,rot,xsc,ysc)

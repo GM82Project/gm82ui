@@ -1,11 +1,11 @@
 
 ui_create
-ui_compute_inner
+layout_engine
 ui_draw_inner
 test_program
 ui_destroy
 ui_set_size
-ui_set_layout
+ui_set_format
 ui_append_child
 ui_remove_child
 ui_set_style
@@ -16,7 +16,7 @@ ui_set_text
 ui_set_alt
 ui_init
 ui_draw
-ui_compute_layout
+ui_set_layout
 ui_destroy_inner
 ui_set_name
 ui_find_by_name

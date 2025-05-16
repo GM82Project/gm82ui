@@ -1,4 +1,3 @@
-///ui_mark_stale(element)
 var p;
 
 instance_activate_object(global.__ui_obj)

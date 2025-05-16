@@ -1,4 +1,3 @@
-///ui_process_inner(element)
 var i,mx,my,l;
 
 with (argument0) {
