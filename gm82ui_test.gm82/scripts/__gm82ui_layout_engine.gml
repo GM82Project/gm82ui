@@ -43,6 +43,8 @@ with (argument0) {
 
 
     //layout resolver
+    mirror_h=false
+    mirror_v=false
     if (parent!=noone) {
         if (parent.direction1==ui_left or parent.direction1==ui_right) {
             parent.lh=max(parent.lh,height+max(padding,parent.lpv))            
@@ -68,28 +70,47 @@ with (argument0) {
                 parent.lp=0
             }
         } else {
-            //add to line 
+            //add to line
             if (parent.direction1==ui_left or parent.direction1==ui_right) {
                 parent.lx+=width+max(padding,parent.lp)
                 parent.lph=padding
     
-                if (parent.direction1==ui_left) {
-                    //mirror layout horizontally
-                    __gm82ui_move(self,(parent.x+parent.width)-(x+width)-(x-parent.x),0)
-                }
+                if (parent.direction1==ui_left) mirror_h=true
+                if (parent.direction2==ui_up) mirror_v=true
             }
             
             if (parent.direction1==ui_up or parent.direction1==ui_down) {
                 parent.ly+=height+max(padding,parent.lp)
                 parent.lph=padding
             
-                if (parent.direction1==ui_up) {
-                    //mirror layout vertically
-                    __gm82ui_move(self,0,(parent.y+parent.height)-(y+height)-(y-parent.y),0)
-                }
+                if (parent.direction1==ui_up) mirror_v=true
+                if (parent.direction2==ui_left) mirror_h=true
             }
+            
+            if (mirror_h or mirror_v) __gm82ui_move(self,((parent.x+parent.width)-(x+width)-(x-parent.x))*mirror_h,((parent.y+parent.height)-(y+height)-(y-parent.y))*mirror_v)
         }
     } 
+    
+    if (direction1==ui_left or direction1==ui_right) {
+        if (direction1==ui_left) mirror_h=true
+        if (direction2==ui_up) mirror_v=true
+    }
+    
+    if (direction1==ui_up or direction1==ui_down) {
+        if (direction1==ui_up) mirror_v=true
+        if (direction2==ui_left) mirror_h=true
+    }
+    
+    var dx,dy;
+    dx=0 dy=0
+    if (setwidth==ui_fit_contents and mirror_h) dx=width
+    if (setheight==ui_fit_contents and mirror_v) dy=height
+    
+    if (dx!=0 or dy!=0) {
+        var i;i=0 repeat (ds_list_size(children)) {
+            __gm82ui_move(ds_list_find_value(children,i),dx,dy)
+        i+=1}
+    }
 }
 
 return instance_exists(argument0)
