@@ -50,3 +50,4 @@ ui_get_alt
 ui_set_pos
 __gm82ui_move
 ui_get_variable
+ui_default_handler

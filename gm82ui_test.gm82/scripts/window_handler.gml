@@ -35,4 +35,4 @@ switch (argument0) {
     }break
 }
 
-return false
+return ui_default_handler()

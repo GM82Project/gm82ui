@@ -37,6 +37,7 @@
 	|ui_process_messages
 	|ui_draw
 	|ui_draw_default_tooltip
+	|ui_default_handler
 |test_program
 |create_button
 |button_handler
