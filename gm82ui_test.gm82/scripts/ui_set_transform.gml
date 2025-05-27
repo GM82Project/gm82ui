@@ -1,6 +1,6 @@
 ///ui_set_transform(ui,rotation,xscale,yscale)
 
-instance_activate_object(argument0)
+if (!global.__ui_in_handler) instance_activate_object(argument0)
 
 if (!instance_exists(argument0)) exit
 
@@ -11,4 +11,4 @@ if (argument0.object_index!=global.__ui_obj) {
 
 __gm82ui_layout_engine(argument0,ui_default,ui_default,argument1,argument2,argument3)
 
-instance_deactivate_object(argument0)
+if (!global.__ui_in_handler) instance_deactivate_object(argument0)

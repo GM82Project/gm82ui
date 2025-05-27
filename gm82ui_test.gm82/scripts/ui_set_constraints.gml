@@ -1,6 +1,6 @@
 ///ui_set_constraints(element,minwidth,minheight,maxwidth,maxheight)
 
-instance_activate_object(argument0)
+if (!global.__ui_in_handler) instance_activate_object(argument0)
 
 if (!instance_exists(argument0)) exit
 
@@ -14,4 +14,4 @@ argument0.minheight=argument2
 argument0.maxwidth=argument3
 argument0.maxheight=argument4
 
-instance_deactivate_object(argument0)
+if (!global.__ui_in_handler) instance_deactivate_object(argument0)

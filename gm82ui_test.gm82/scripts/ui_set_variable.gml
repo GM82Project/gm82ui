@@ -1,6 +1,6 @@
 ///ui_set_variable(element,variable,value)
 
-instance_activate_object(argument0)
+if (!global.__ui_in_handler) instance_activate_object(argument0)
 
 if (!instance_exists(argument0)) exit
 
@@ -10,4 +10,4 @@ if (argument0.object_index!=global.__ui_obj) {
 }
 
 variable_instance_set(argument0,argument1,argument2)
-instance_deactivate_object(argument0)
+if (!global.__ui_in_handler) instance_deactivate_object(argument0)

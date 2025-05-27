@@ -1,6 +1,6 @@
 ///ui_set_blend(element,color,alpha)
 
-instance_activate_object(argument0)
+if (!global.__ui_in_handler) instance_activate_object(argument0)
 
 if (!instance_exists(argument0)) exit
 
@@ -12,4 +12,4 @@ if (argument0.object_index!=global.__ui_obj) {
 argument0.image_blend=argument1
 argument0.image_alpha=argument2
 
-instance_deactivate_object(argument0)
+if (!global.__ui_in_handler) instance_deactivate_object(argument0)

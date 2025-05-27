@@ -82,6 +82,6 @@ ui.image_blend=global.ui_col_main
 
 ui.layout_stale=false
 
-instance_deactivate_object(ui)
+if (!global.__ui_in_handler) instance_deactivate_object(ui)
 
 return ui

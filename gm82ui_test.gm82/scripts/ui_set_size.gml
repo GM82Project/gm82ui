@@ -5,7 +5,7 @@ if (argument_count<3) {
     exit
 }
 
-instance_activate_object(argument[0])
+if (!global.__ui_in_handler) instance_activate_object(argument[0])
 
 if (!instance_exists(argument0)) exit
 
@@ -21,4 +21,4 @@ if (argument_count==5) {
     if (argument[4]!=ui_default) argument[0].padding=argument[4]
 }
 
-instance_deactivate_object(argument[0])
+if (!global.__ui_in_handler) instance_deactivate_object(argument[0])

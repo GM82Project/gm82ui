@@ -1,6 +1,6 @@
 ///ui_set_format(element,resize,overflow_h,overflow_v,direction1,direction2)
 
-instance_activate_object(argument0)
+if (!global.__ui_in_handler) instance_activate_object(argument0)
 
 if (!instance_exists(argument0)) exit
 
@@ -15,4 +15,4 @@ argument0.overflow_v=argument3
 argument0.direction1=argument4
 argument0.direction2=argument5
 
-instance_deactivate_object(argument0)
+if (!global.__ui_in_handler) instance_deactivate_object(argument0)
