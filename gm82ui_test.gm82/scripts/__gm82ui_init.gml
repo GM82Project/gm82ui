@@ -2,6 +2,7 @@ global.__ui_obj=object_add()
 global.__ui_messages=ds_map_create()
 global.__ui_alt=""
 global.__ui_help=""
+global.__ui_in_handler=false
 
 var dir,theme;
 

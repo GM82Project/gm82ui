@@ -5,7 +5,7 @@ var data;data=argument1
 switch (argument0) {
     case "step": {
         if (name=="title") with (parent) if (state=="grab") {
-            ui_set_layout(self,tmouse_x-offset_x,tmouse_y-offset_y)
+            ui_set_pos(self,tmouse_x-offset_x,tmouse_y-offset_y)
             if (!ui_has_message("left button")) state="none"
         }
         if (name=="close") {

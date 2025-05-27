@@ -2,8 +2,10 @@ if (!instance_exists(argument0)) return false
 
 with (argument0) {
     //reset to defaults
+    if (setwidth==ui_fit_contents) width=0 else width=setwidth
+    if (setheight==ui_fit_contents) height=0 else height=setheight
+
     if (parent==noone) {
-        //master
         if (argument1!=ui_default) x=argument1
         if (argument2!=ui_default) y=argument2
         if (argument3!=ui_default) image_angle=argument3
@@ -23,9 +25,6 @@ with (argument0) {
     lph=0 //last pad hor
     lpv=0 //last pad vert
 
-    if (setwidth==ui_fit_contents) width=0 else width=setwidth
-    if (setheight==ui_fit_contents) height=0 else height=setheight
-
 
     //for fill, we use the remaining space in the parent's box
     if (setwidth==ui_fill_space) width=parent.width-(x-parent.x)
@@ -44,23 +43,23 @@ with (argument0) {
 
     //layout resolver
     if (parent!=noone) {
-        if (parent.direction1==ui_right) {
+        if (parent.direction1==ui_left or parent.direction1==ui_right) {
             parent.lh=max(parent.lh,height+max(padding,parent.lpv))            
         }
-        if (parent.direction1==ui_down) {
+        if (parent.direction1==ui_up or parent.direction1==ui_down) {
             parent.lh=max(parent.lh,width+max(padding,parent.lpv))            
         }
         parent.lp=max(parent.lp,padding)
         if (type==ui_t_break) {
             //break a line
-            if (parent.direction1==ui_right) {
+            if (parent.direction1==ui_left or parent.direction1==ui_right) {
                 parent.lx=parent.lxi
                 parent.ly+=parent.lh
                 parent.lh=0
                 parent.lpv=parent.lp
                 parent.lp=0
             }
-            if (parent.direction1==ui_down) {
+            if (parent.direction1==ui_up or parent.direction1==ui_down) {
                 parent.ly=parent.lyi
                 parent.lx+=parent.lh
                 parent.lh=0
@@ -73,9 +72,19 @@ with (argument0) {
                 parent.lx+=width+max(padding,parent.lp)
                 parent.lph=padding
             }
+            if (parent.direction1==ui_left) {
+                parent.lx-=width+max(padding,parent.lp)
+                parent.lph=padding
+                __gm82ui_move(self,-width,0)
+            }
             if (parent.direction1==ui_down) {
                 parent.ly+=height+max(padding,parent.lp)
                 parent.lph=padding
+            }
+            if (parent.direction1==ui_up) {
+                parent.ly-=height+max(padding,parent.lp)
+                parent.lph=padding          
+                __gm82ui_move(self,0,-height)
             }
         }
     } 

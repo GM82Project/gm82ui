@@ -16,7 +16,7 @@ ui_set_text
 ui_set_alt
 __gm82ui_init
 ui_draw
-ui_set_layout
+ui_set_transform
 __gm82ui_destroy_inner
 ui_set_name
 ui_get_by_name
@@ -46,3 +46,6 @@ ui_has_message
 ui_get_help
 ui_get_alt
 
+
+ui_set_pos
+__gm82ui_move

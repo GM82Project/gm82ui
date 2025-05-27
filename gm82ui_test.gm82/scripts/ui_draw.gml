@@ -13,7 +13,7 @@ if (argument0.object_index!=global.__ui_obj) {
 }
 
 with (argument0) {
-    if (layout_stale) ui_set_layout(self,ui_default,ui_default)
+    if (layout_stale) ui_set_transform(self,ui_default,ui_default,ui_default)
     d3d_transform_stack_push()
     d3d_transform_add_translation(-x,-y,0)
     d3d_transform_add_scaling(image_xscale,image_yscale,1)

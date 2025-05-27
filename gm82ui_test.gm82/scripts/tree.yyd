@@ -9,13 +9,15 @@
 		|__gm82ui_draw_inner
 		|__gm82ui_destroy_inner
 		|__gm82ui_default_styler
+		|__gm82ui_move
 	|ui_create
 	|ui_set_enabled
 	|ui_set_name
 	|ui_set_size
 	|ui_set_constraints
 	|ui_set_format
-	|ui_set_layout
+	|ui_set_pos
+	|ui_set_transform
 	|ui_set_style
 	|ui_set_text
 	|ui_set_alt
