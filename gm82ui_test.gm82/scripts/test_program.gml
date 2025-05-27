@@ -19,6 +19,7 @@ if (argument0=="create") {
 
     panel=ui_append_child(window,ui_t_panel)
         ui_set_size(panel,ui_fill_space,ui_fit_contents,4,0)
+        ui_set_format(panel,ui_no,ui_over_spill,ui_over_spill,ui_right,ui_down)
 
     button=ui_append_child(panel,create_button("Button1"))
         ui_set_size(button,80,24,0,4)

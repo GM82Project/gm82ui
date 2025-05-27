@@ -28,6 +28,7 @@ with (argument0) {
 
     //for fill, we use the remaining space in the parent's box
     if (setwidth==ui_fill_space) width=parent.width-(x-parent.x)
+    if (setheight==ui_fill_space) height=parent.height-(y-parent.y)
 
     
     //update children recursively
@@ -67,24 +68,25 @@ with (argument0) {
                 parent.lp=0
             }
         } else {
-            //add to line
-            if (parent.direction1==ui_right) {
+            //add to line 
+            if (parent.direction1==ui_left or parent.direction1==ui_right) {
                 parent.lx+=width+max(padding,parent.lp)
                 parent.lph=padding
+    
+                if (parent.direction1==ui_left) {
+                    //mirror layout horizontally
+                    __gm82ui_move(self,(parent.x+parent.width)-(x+width)-(x-parent.x),0)
+                }
             }
-            if (parent.direction1==ui_left) {
-                parent.lx-=width+max(padding,parent.lp)
-                parent.lph=padding
-                __gm82ui_move(self,-width,0)
-            }
-            if (parent.direction1==ui_down) {
+            
+            if (parent.direction1==ui_up or parent.direction1==ui_down) {
                 parent.ly+=height+max(padding,parent.lp)
                 parent.lph=padding
-            }
-            if (parent.direction1==ui_up) {
-                parent.ly-=height+max(padding,parent.lp)
-                parent.lph=padding          
-                __gm82ui_move(self,0,-height)
+            
+                if (parent.direction1==ui_up) {
+                    //mirror layout vertically
+                    __gm82ui_move(self,0,(parent.y+parent.height)-(y+height)-(y-parent.y),0)
+                }
             }
         }
     } 
