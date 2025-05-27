@@ -24,6 +24,7 @@
 	|ui_set_blend
 	|ui_set_handler
 	|ui_set_variable
+	|ui_get_variable
 	|ui_get_help
 	|ui_get_alt
 	|ui_get_by_name
