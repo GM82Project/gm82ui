@@ -10,6 +10,8 @@ with (argument0) {
     } else {
         down=2*(state!="up")
 
+        if (type==ui_t_panel) down=0
+
         if (image_blend!=noone) {
             draw_rect(x,y,width,height,image_blend)
         }

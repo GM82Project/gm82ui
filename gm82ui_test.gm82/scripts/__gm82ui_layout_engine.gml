@@ -27,8 +27,8 @@ with (argument0) {
 
 
     //for fill, we use the remaining space in the parent's box
-    if (setwidth==ui_fill_space) width=parent.width-(x-parent.x)
-    if (setheight==ui_fill_space) height=parent.height-(y-parent.y)
+    if (setwidth==ui_fill_space) width=parent.width-(x-parent.x)-parent.margin
+    if (setheight==ui_fill_space) height=parent.height-(y-parent.y)-parent.margin
 
     
     //update children recursively

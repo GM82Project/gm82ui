@@ -11,7 +11,7 @@ if (argument0=="create") {
         ui_set_alt(button,"Close","Closes the window.")
 
     title=ui_append_child(window,create_button("Window",window_handler))
-        ui_set_size(title,400-24,24)
+        ui_set_size(title,ui_fill_space,24)
         ui_set_name(title,"title")
         ui_set_blend(title,$880088,1)
 
