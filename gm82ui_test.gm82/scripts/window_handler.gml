@@ -49,4 +49,4 @@ switch (argument0) {
     }break
 }
 
-return ui_default_handler()
+return ui_default_handler(argument0,argument1)

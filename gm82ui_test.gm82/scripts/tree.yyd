@@ -14,7 +14,7 @@
 		|__gm82ui_takeyfocus
 	|ui_create
 	|ui_set_enabled
-	|ui_set_tab_enabled
+	|ui_set_keyboard_enabled
 	|ui_set_name
 	|ui_set_size
 	|ui_set_constraints
@@ -25,6 +25,7 @@
 	|ui_set_text
 	|ui_set_alt
 	|ui_set_blend
+	|ui_set_state
 	|ui_set_handler
 	|ui_set_variable
 	|ui_get_variable
@@ -43,6 +44,7 @@
 	|ui_draw
 	|ui_draw_default_tooltip
 	|ui_default_handler
+	|ui_settings
 |test_program
 |create_button
 |button_handler

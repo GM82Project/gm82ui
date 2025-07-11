@@ -3,7 +3,7 @@ var i,mx,my,l;
 with (argument0) {
     //grab focus if nothing has focus
     var check;check=true
-    with (global.__ui_obj) if (keyfocus) {check=false}
+    with (global.__gm82ui_obj) if (keyfocus) {check=false}
     if (check and argument0.cantab) argument0.keyfocus=true
 
     //pre-update handler
@@ -14,14 +14,14 @@ with (argument0) {
     focus=false
     if (parent==noone) {
         //top-level parent
-        if (ds_map_exists(global.__ui_messages,"mouse")) {
-            l=ds_map_find_value(global.__ui_messages,"mouse")
+        if (ds_map_exists(global.__gm82ui_messages,"mouse")) {
+            l=ds_map_find_value(global.__gm82ui_messages,"mouse")
 
             mx=ds_list_find_value(l,0)
             my=ds_list_find_value(l,1)
 
             ds_list_destroy(l)
-            ds_map_delete(global.__ui_messages,"mouse")
+            ds_map_delete(global.__gm82ui_messages,"mouse")
 
             tmouse_x=x+pivot_pos_x(mx-x,my-y,-image_angle)/image_xscale
             tmouse_y=y+pivot_pos_y(mx-x,my-y,-image_angle)/image_yscale
@@ -44,9 +44,9 @@ with (argument0) {
         //mouse collision
         if (point_in_rectangle(tmouse_x,tmouse_y,x,y,x+width,y+height)) {
             //focus
-            if (ds_map_exists(global.__ui_messages,"focus")) {
-                ds_list_destroy(ds_map_find_value(global.__ui_messages,"focus"))
-                ds_map_delete(global.__ui_messages,"focus")
+            if (ds_map_exists(global.__gm82ui_messages,"focus")) {
+                ds_list_destroy(ds_map_find_value(global.__gm82ui_messages,"focus"))
+                ds_map_delete(global.__gm82ui_messages,"focus")
                 focus=true
                 if (cantab) __gm82ui_takeyfocus()
             }
@@ -75,7 +75,7 @@ with (argument0) {
                 initial=id find=id
                 do {
                     newtab=modwrap(newtab+tab,0,topowner.tabcount)
-                    with (global.__ui_obj) if (topowner==other.topowner && taborder==newtab) {
+                    with (global.__gm82ui_obj) if (topowner==other.topowner && taborder==newtab) {
                         __gm82ui_takeyfocus()
                         find=id
                         break

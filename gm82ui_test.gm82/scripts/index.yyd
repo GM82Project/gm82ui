@@ -55,4 +55,6 @@ ui_push_default_keyboard
 ui_push_default_messages
 __gm82ui_delete_message
 __gm82ui_takeyfocus
-ui_set_tab_enabled
+ui_set_keyboard_enabled
+ui_settings
+ui_set_state

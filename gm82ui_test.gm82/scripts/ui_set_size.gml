@@ -5,11 +5,11 @@ if (argument_count<3) {
     exit
 }
 
-if (!global.__ui_in_handler) instance_activate_object(argument[0])
+if (!global.__gm82ui_in_handler) instance_activate_object(argument[0])
 
 if (!instance_exists(argument0)) exit
 
-if (argument[0].object_index!=global.__ui_obj) {
+if (argument[0].object_index!=global.__gm82ui_obj) {
     show_error("in function ui_set_size: instance is "+object_get_name(argument[0].object_index)+" instead of an ui element",0)
     exit
 }
@@ -21,4 +21,4 @@ if (argument_count==5) {
     if (argument[4]!=ui_default) argument[0].padding=argument[4]
 }
 
-if (!global.__ui_in_handler) instance_deactivate_object(argument[0])
+if (!global.__gm82ui_in_handler) instance_deactivate_object(argument[0])

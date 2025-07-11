@@ -1,13 +1,13 @@
 ///ui_draw(ui)
 
-global.__ui_alt=""
-global.__ui_help=""
+global.__gm82ui_alt=""
+global.__gm82ui_help=""
 
-instance_activate_object(global.__ui_obj)
+instance_activate_object(global.__gm82ui_obj)
 
 if (!instance_exists(argument0)) exit
 
-if (argument0.object_index!=global.__ui_obj) {
+if (argument0.object_index!=global.__gm82ui_obj) {
     show_error("in function ui_draw: instance is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
     exit
 }
@@ -23,4 +23,4 @@ with (argument0) {
     d3d_transform_stack_pop()
 }
 
-instance_deactivate_object(global.__ui_obj)
+instance_deactivate_object(global.__gm82ui_obj)

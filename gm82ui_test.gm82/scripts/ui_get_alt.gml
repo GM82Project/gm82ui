@@ -1,4 +1,4 @@
 ///ui_get_alt()
 //returns the alt string of the currently focused element.
 
-return global.__ui_alt
+return global.__gm82ui_alt

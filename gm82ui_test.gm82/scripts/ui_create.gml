@@ -34,7 +34,7 @@
     direction2: const
 */
 
-if (argument[0]<0 or argument[0]>6) {
+if (argument[0]<0 or argument[0]>7) {
     show_error("in function ui_create: invalid type ("+string(argument[0])+")",0)
     exit
 }
@@ -46,7 +46,7 @@ if (argument_count>1) {
     }
 }
 
-var ui; ui=instance_create(0,0,global.__ui_obj)
+var ui; ui=instance_create(0,0,global.__gm82ui_obj)
 
 ui.type=argument[0]
 ui.name=undefined
@@ -57,7 +57,7 @@ ui.dead=false
 
 ui.parent=noone
 ui.children=ds_list_create()
-if (argument_count>1) ui.handler=argument[1] else ui.handler=noone
+if (argument_count>1) ui.handler=argument[1] else ui.handler=ui_default_handler
 
 ui.cantab=false
 ui.topowner=ui
@@ -84,10 +84,10 @@ ui.overflow_v=ui_over_spill
 ui.direction1=ui_right
 ui.direction2=ui_down
 
-ui.image_blend=global.ui_col_main
+ui.image_blend=global.__gm82ui_col_main
 
 ui.layout_stale=false
 
-if (!global.__ui_in_handler) instance_deactivate_object(ui)
+if (!global.__gm82ui_in_handler) instance_deactivate_object(ui)
 
 return ui

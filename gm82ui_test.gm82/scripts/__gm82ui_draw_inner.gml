@@ -4,8 +4,8 @@ with (argument0) {
         else if (style!=noone) script_execute(style,self)
 
         if (focus) {
-            global.__ui_alt=alt
-            global.__ui_help=help
+            global.__gm82ui_alt=alt
+            global.__gm82ui_help=help
         }
 
         var i;i=0 repeat (ds_list_size(children)) {

@@ -1,8 +1,8 @@
 ///ui_draw_default_tooltip(x,y)
 var w,h,dx,dy;
 
-if (global.__ui_alt!="") {
-    w=string_width(global.__ui_alt)+8
+if (global.__gm82ui_alt!="") {
+    w=string_width(global.__gm82ui_alt)+8
     h=24
 
     dx=argument0
@@ -13,7 +13,7 @@ if (global.__ui_alt!="") {
     draw_set_valign(1)
     draw_set_color(0)
     draw_set_font(font0)
-    draw_text(dx+4,dy+12-1,global.__ui_alt)
+    draw_text(dx+4,dy+12-1,global.__gm82ui_alt)
     draw_set_valign(0)
     draw_set_color($ffffff)
 }
