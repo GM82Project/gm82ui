@@ -9,11 +9,6 @@ if (argument0.object_index!=global.__ui_obj) {
     exit
 }
 
-//grab focus if nothing has focus
-var check;check=true
-with (global.__ui_obj) if (keyfocus) {check=false}
-if (check) argument0.keyfocus=true
-
 __gm82ui_process_inner(argument0)
 
 //handle death

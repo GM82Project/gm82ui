@@ -11,7 +11,7 @@
 		|__gm82ui_default_styler
 		|__gm82ui_move
 		|__gm82ui_delete_message
-		|__gm82ui_takefocus
+		|__gm82ui_takeyfocus
 	|ui_create
 	|ui_set_enabled
 	|ui_set_tab_enabled

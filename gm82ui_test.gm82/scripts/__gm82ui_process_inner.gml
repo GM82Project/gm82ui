@@ -1,6 +1,11 @@
 var i,mx,my,l;
 
 with (argument0) {
+    //grab focus if nothing has focus
+    var check;check=true
+    with (global.__ui_obj) if (keyfocus) {check=false}
+    if (check and argument0.cantab) argument0.keyfocus=true
+
     //pre-update handler
     __gm82ui_fire_handler("step",noone)
 
@@ -43,6 +48,7 @@ with (argument0) {
                 ds_list_destroy(ds_map_find_value(global.__ui_messages,"focus"))
                 ds_map_delete(global.__ui_messages,"focus")
                 focus=true
+                if (cantab) __gm82ui_takeyfocus()
             }
 
             if (handler!=noone) {
@@ -70,7 +76,7 @@ with (argument0) {
                 do {
                     newtab=modwrap(newtab+tab,0,topowner.tabcount)
                     with (global.__ui_obj) if (topowner==other.topowner && taborder==newtab) {
-                        __gm82ui_takefocus()
+                        __gm82ui_takeyfocus()
                         find=id
                         break
                     }
