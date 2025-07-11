@@ -10,8 +10,11 @@
 		|__gm82ui_destroy_inner
 		|__gm82ui_default_styler
 		|__gm82ui_move
+		|__gm82ui_delete_message
+		|__gm82ui_takefocus
 	|ui_create
 	|ui_set_enabled
+	|ui_set_tab_enabled
 	|ui_set_name
 	|ui_set_size
 	|ui_set_constraints
@@ -32,6 +35,8 @@
 	|ui_orphan
 	|ui_destroy
 	|ui_push_default_mouse
+	|ui_push_default_keyboard
+	|ui_push_default_messages
 	|ui_push_message
 	|ui_has_message
 	|ui_process_messages

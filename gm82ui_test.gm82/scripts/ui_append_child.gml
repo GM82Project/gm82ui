@@ -23,9 +23,19 @@ if (element.object_index!=global.__ui_obj) {
 element.parent=argument0
 ds_list_add(argument0.children,element)
 
+
+var top;top=argument0
+while (top.parent!=noone) {
+    top=top.parent
+    instance_activate_object(top)
+}
+element.taborder=top.tabcount
+top.tabcount+=1
+element.topowner=top
+
+
 if (!global.__ui_in_handler) {
-    instance_deactivate_object(argument0)
-    instance_deactivate_object(element)
+    instance_deactivate_object(global.__ui_obj)
 }
 
 __gm82ui_mark_stale(element)

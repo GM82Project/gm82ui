@@ -55,7 +55,28 @@ with (argument0) {
             }
         }
 
-        //handle keyboard events here
+        if (keyfocus) {
+            __gm82ui_eat_message("accept")
+            __gm82ui_eat_message("accept press")
+            __gm82ui_eat_message("accept release")
+            __gm82ui_eat_message("menu")
+            __gm82ui_eat_message("menu press")
+            __gm82ui_eat_message("menu release")
+
+            var tab;tab=__gm82ui_delete_message("tab")-__gm82ui_delete_message("back tab")
+            if (tab!=0) {
+                var newtab,find; newtab=taborder
+                initial=id find=id
+                do {
+                    newtab=modwrap(newtab+tab,0,topowner.tabcount)
+                    with (global.__ui_obj) if (topowner==other.topowner && taborder==newtab) {
+                        __gm82ui_takefocus()
+                        find=id
+                        break
+                    }
+                } until (find.cantab==true and find!=id) or (find==initial)
+            }
+        }
     }
 
     __gm82ui_fire_handler("end step",noone)

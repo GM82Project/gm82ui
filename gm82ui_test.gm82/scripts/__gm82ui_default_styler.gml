@@ -26,6 +26,8 @@ with (argument0) {
         draw_sprite_part_ext(global.ui_buttontex,down,0,5,4,15,x,y+4,1,(height-8)/15,$ffffff,1)
         draw_sprite_part_ext(global.ui_buttontex,down,76,5,4,15,x+width-4,y+4,1,(height-8)/15,$ffffff,1)
 
+        if (keyfocus) draw_rectangle(x,y,x+width-1,y+height-1,1)
+
         if (type==ui_t_button) if (button_sprite!=noone)
             draw_sprite(button_sprite,button_frame,x+width div 2+down,y+height div 2+down)
         draw_set_halign(1)

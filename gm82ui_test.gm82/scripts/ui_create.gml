@@ -59,6 +59,12 @@ ui.parent=noone
 ui.children=ds_list_create()
 if (argument_count>1) ui.handler=argument[1] else ui.handler=noone
 
+ui.cantab=false
+ui.topowner=ui
+ui.tabcount=0
+ui.taborder=noone
+ui.keyfocus=false
+
 ui.style=ui_default
 ui.text=""
 ui.alt=""
