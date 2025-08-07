@@ -28,8 +28,6 @@
     margin: int
 
     resizable: const mask
-    overflow_h: const
-    overflow_v: const
     direction1: const
     direction2: const
 */
@@ -79,8 +77,6 @@ ui.margin=0
 ui.padding=0
 
 ui.resizable=ui_no
-ui.overflow_h=ui_over_spill
-ui.overflow_v=ui_over_spill
 ui.direction1=ui_right
 ui.direction2=ui_down
 

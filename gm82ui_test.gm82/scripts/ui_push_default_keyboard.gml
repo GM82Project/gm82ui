@@ -2,6 +2,10 @@ if (keyboard_check(vk_enter) or keyboard_check(vk_space)) ui_push_message("accep
 if (keyboard_check_pressed(vk_enter) and not keyboard_check(vk_space)) or (keyboard_check_pressed(vk_space) and not keyboard_check(vk_enter)) ui_push_message("accept press")
 if (keyboard_check_released(vk_enter) and not keyboard_check(vk_space)) or (keyboard_check_released(vk_space) and not keyboard_check(vk_enter)) ui_push_message("accept release")
 
+if (keyboard_check(vk_escape)) ui_push_message("cancel")
+if (keyboard_check_pressed(vk_escape)) ui_push_message("cancel press")
+if (keyboard_check_released(vk_escape)) ui_push_message("cancel release")
+
 if (keyboard_check(vk_menu)) ui_push_message("menu")
 if (keyboard_check_pressed(vk_menu)) ui_push_message("menu press")
 if (keyboard_check_released(vk_menu)) ui_push_message("menu release")
