@@ -328,7 +328,7 @@
 #define __gm82ui_draw_inner
     with (argument0) {
         if (type!=ui_t_break) {
-            if (style==ui_default) __gm82ui_default_styler(self)
+            if (style==ui_default) ui_default_styler(self)
             else if (style!=noone) script_execute(style,self)
 
             if (focus) {
@@ -364,70 +364,6 @@
 
         ds_list_destroy(children)
         instance_destroy()
-    }
-
-
-#define __gm82ui_default_styler
-    //styler(element,[data])
-
-    with (argument0) {
-        draw_set_valign(1)
-        draw_set_color(global.__gm82ui_col_text)
-        draw_set_font(__gm82ui_default_font())
-
-        if (type==ui_t_label) {
-            draw_text(x,y+height div 2-1,text)
-        } else if (type==ui_t_radio) or (type==ui_t_check) {
-            down=2*(state=="checked")
-
-            draw_sprite_part(global.__gm82ui_buttontex,2,0,0,4,4,x,y)
-            draw_sprite_part(global.__gm82ui_buttontex,2,76,0,4,4,x+height-4,y)
-            draw_sprite_part(global.__gm82ui_buttontex,2,0,21,4,4,x,y+height-4)
-            draw_sprite_part(global.__gm82ui_buttontex,2,76,21,4,4,x+height-4,y+height-4)
-
-            draw_sprite_part_ext(global.__gm82ui_buttontex,2,5,0,70,4,x+4,y,(height-8)/70,1,$ffffff,1)
-            draw_sprite_part_ext(global.__gm82ui_buttontex,2,5,21,70,4,x+4,y+height-4,(height-8)/70,1,$ffffff,1)
-            draw_sprite_part_ext(global.__gm82ui_buttontex,2,0,5,4,15,x,y+4,1,(height-8)/15,$ffffff,1)
-            draw_sprite_part_ext(global.__gm82ui_buttontex,2,76,5,4,15,x+height-4,y+4,1,(height-8)/15,$ffffff,1)
-
-            if (down) draw_sprite(sprIcons,1+(type==ui_t_radio),x+height div 2,y+height div 2)
-            draw_text(x+height+4,y+height div 2-1,text)
-        } else {
-            down=2*(state!="up")
-
-            if (type==ui_t_panel) down=0
-
-            if (image_blend!=noone) {
-                draw_rect(x,y,width,height,image_blend)
-            }
-
-            draw_sprite_part(global.__gm82ui_buttontex,down,0,0,4,4,x,y)
-            draw_sprite_part(global.__gm82ui_buttontex,down,76,0,4,4,x+width-4,y)
-            draw_sprite_part(global.__gm82ui_buttontex,down,0,21,4,4,x,y+height-4)
-            draw_sprite_part(global.__gm82ui_buttontex,down,76,21,4,4,x+width-4,y+height-4)
-
-            draw_sprite_part_ext(global.__gm82ui_buttontex,down,5,0,70,4,x+4,y,(width-8)/70,1,$ffffff,1)
-            draw_sprite_part_ext(global.__gm82ui_buttontex,down,5,21,70,4,x+4,y+height-4,(width-8)/70,1,$ffffff,1)
-            draw_sprite_part_ext(global.__gm82ui_buttontex,down,0,5,4,15,x,y+4,1,(height-8)/15,$ffffff,1)
-            draw_sprite_part_ext(global.__gm82ui_buttontex,down,76,5,4,15,x+width-4,y+4,1,(height-8)/15,$ffffff,1)
-
-            draw_set_halign(1)
-            if (type==ui_t_button) {
-                if (button_sprite!=noone) {
-                    if (text!="") {
-                        var sprw;sprw=sprite_get_width(button_sprite)
-                        draw_sprite(button_sprite,button_frame,x+6+sprw div 2+down,y+height div 2+down)
-                        draw_text(x+(width+sprw+3) div 2,y+height div 2-1,text)
-                    } else draw_sprite(button_sprite,button_frame,x+width div 2+down,y+height div 2+down)
-                } else draw_text(x+width div 2,y+height div 2-1,text)
-            } else draw_text(x+width div 2,y+height div 2-1,text)
-            draw_set_halign(0)
-        }
-
-        draw_set_valign(0)
-        draw_set_color($ffffff)
-
-        if (keyfocus) draw_rectangle(x-1,y-1,x+width,y+height,1)
     }
 
 

@@ -67,6 +67,13 @@ if (argument0=="create") {
         ui_set_text(radio,"Option 3")
         ui_set_keyboard_enabled(radio,true)
 
+    image=ui_create(ui_t_panel)
+    ui_set_size(image,104,104,0,4)
+    ui_set_style(image,image_styler)
+    ui_set_variable(image,"src",background1_gm82)
+    ui_append_child(panel,image)
+
+
     avg=0
 }
 if (argument0=="draw") {
