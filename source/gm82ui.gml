@@ -458,6 +458,7 @@
 
 #define ui_create
     ///ui_create(type,[handler])
+    
     /*
         fields:
 
@@ -490,6 +491,11 @@
         direction1: const
         direction2: const
     */
+    
+    if (argument_count!=1 and argument_count!=2) {
+        show_error("in function ui_create: invalid number of arguments ("+string(argument_count)+")",0)
+        exit
+    }
 
     if (argument[0]<0 or argument[0]>7) {
         show_error("in function ui_create: invalid type ("+string(argument[0])+")",0)
@@ -571,7 +577,7 @@
 #define ui_set_size
     ///ui_set_size(element,width,height,[margin,padding])
 
-    if (argument_count<3) {
+    if (argument_count<3 or argument_count>5) {
         show_error("in function ui_set_size: wrong number of arguments",0)
         exit
     }
@@ -913,6 +919,11 @@
 
 #define ui_push_message
     ///ui_push_message(message,[data])
+    
+    if (argument_count==0 or argument_count>2) {
+        show_error("In function ui_push_message: wrong number of arguments ("+string(argument_count)+")")
+        exit
+    }
 
     var l;l=ds_list_create()
 
