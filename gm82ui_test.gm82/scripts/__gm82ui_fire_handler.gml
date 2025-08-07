@@ -2,7 +2,8 @@ if (handler!=noone) {
     if (global.__gm82ui_in_handler) show_error("error in ui stack: handler recursion.",0)
     else {
         global.__gm82ui_in_handler=true
-        ret=script_execute(handler,argument0,argument1)
+        if (handler==ui_default) ret=ui_default_handler(argument0,argument1)
+        else ret=script_execute(handler,argument0,argument1)
         global.__gm82ui_in_handler=false
         return ret
     }

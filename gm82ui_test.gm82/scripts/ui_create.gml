@@ -55,7 +55,7 @@ ui.dead=false
 
 ui.parent=noone
 ui.children=ds_list_create()
-if (argument_count>1) ui.handler=argument[1] else ui.handler=ui_default_handler
+if (argument_count>1) ui.handler=argument[1] else ui.handler=ui_default
 
 ui.cantab=false
 ui.topowner=ui

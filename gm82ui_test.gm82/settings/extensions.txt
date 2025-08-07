@@ -1,2 +1,1 @@
 Game Maker 8.2 Core
-Game Maker 8.2 DirectX9
