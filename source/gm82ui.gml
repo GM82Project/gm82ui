@@ -556,7 +556,7 @@
         draw_rectangle_color(dx,dy,dx+w,dy+h,0,0,0,0,1)
         draw_set_valign(1)
         draw_set_color(0)
-        draw_set_font(font0)
+        draw_set_font(__gm82ui_default_font())
         draw_text(dx+4,dy+12-1,global.__gm82ui_alt)
         draw_set_valign(0)
         draw_set_color($ffffff)

@@ -5,6 +5,7 @@
     global.__gm82ui_help=""
     global.__gm82ui_in_handler=false
     global.__gm82ui_mousefocus=true
+    global.__gm82ui_font=noone
 
     var dir,theme;
 
@@ -372,7 +373,7 @@
     with (argument0) {
         draw_set_valign(1)
         draw_set_color(global.__gm82ui_col_text)
-        draw_set_font(font0)
+        draw_set_font(__gm82ui_default_font())
 
         if (type==ui_t_label) {
             draw_text(x,y+height div 2-1,text)
@@ -456,5 +457,10 @@
 #define __gm82ui_takeyfocus
     with (global.__gm82ui_obj) keyfocus=false
     keyfocus=true
+
+
+#define __gm82ui_default_font
+    if (global.__gm82ui_font==noone) global.__gm82ui_font=font_add_file(temp_directory+"\gm82\JetBrainsMonoNL-Medium.ttf","JetBrains Mono NL Medium",12,0,0,0,255)
+    return global.__gm82ui_font
 //
 //

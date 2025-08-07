@@ -5,13 +5,41 @@
 	"author": "renex",
 	"date": "07/08/2025",
 	"license": "Free to use, also for commercial games.",
-	"description": "Part of the standard Game Maker 8.2 distribution. This extension package contains functions to create and handle hierarchical user interface layouts with basic interaction capabilities.",
+	"description": "Part of the standard Game Maker 8.2 distribution. This extension package contains functions to create and handle hierarchical user interface layouts with basic interaction capabilities. JetBrains Mono: https://openfontlicense.org/",
 	"helpfile": "",
 	"hidden": false,
 	"dependencies": [
 		"Game Maker 8.2 Core"
 	],
 	"files": [
+		{
+			"filename": "accelerators.gml",
+			"origname": "source\\accelerators.gml",
+			"kind": 2,
+			"init": "",
+			"final": "",
+			"functions": [
+				{
+					"name": "ui_create_button",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_create_button(text,[handler,[sprite,frame]])",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_button_handler",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				}
+			],
+			"constants": []
+		},
 		{
 			"filename": "gm82ui.gml",
 			"origname": "source\\gm82ui.gml",
@@ -601,28 +629,9 @@
 					"hidden": true,
 					"argtypes": null,
 					"returntype": 2
-				}
-			],
-			"constants": []
-		},
-		{
-			"filename": "accelerators.gml",
-			"origname": "source\\accelerators.gml",
-			"kind": 2,
-			"init": "",
-			"final": "",
-			"functions": [
-				{
-					"name": "ui_create_button",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_create_button(text,[handler,[sprite,frame]])",
-					"hidden": false,
-					"argtypes": null,
-					"returntype": 2
 				},
 				{
-					"name": "__gm82ui_button_handler",
+					"name": "__gm82ui_default_font",
 					"extname": "",
 					"calltype": 2,
 					"helpline": "",
@@ -631,6 +640,15 @@
 					"returntype": 2
 				}
 			],
+			"constants": []
+		},
+		{
+			"filename": "JetBrainsMonoNL-Medium.ttf",
+			"origname": "C:\\Users\\rene\\Desktop\\github\\gm82ui\\JetBrainsMonoNL-Medium.ttf",
+			"kind": 4,
+			"init": "",
+			"final": "",
+			"functions": [],
 			"constants": []
 		}
 	]
