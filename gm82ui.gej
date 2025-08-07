@@ -1,0 +1,431 @@
+{
+	"name": "Game Maker 8.2 UI",
+	"folder": "gm82",
+	"version": "0.1",
+	"author": "renex",
+	"date": "07/08/2025",
+	"license": "Free to use, also for commercial games.",
+	"description": "Part of the standard Game Maker 8.2 distribution. This extension package contains functions to create and handle hierarchical user interface layouts with basic interaction capabilities.",
+	"helpfile": "",
+	"hidden": false,
+	"dependencies": [
+		"Game Maker 8.2 Core"
+	],
+	"files": [
+		{
+			"filename": "gm82ui.gml",
+			"origname": "source\\gm82ui.gml",
+			"kind": 2,
+			"init": "__gm82ui_init",
+			"final": "",
+			"functions": [
+				{
+					"name": "__gm82ui_init",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_mark_stale",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_eat_message",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_fire_handler",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_process_inner",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_layout_engine",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_draw_inner",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_destroy_inner",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_default_styler",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_move",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_delete_message",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "__gm82ui_takeyfocus",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": true,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_create",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_enabled",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_keyboard_enabled",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_name",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_size",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_constraints",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_format",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_pos",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_transform",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_style",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_text",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_alt",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_blend",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_state",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_handler",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_variable",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_get_variable",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_get_help",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_get_alt",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_get_by_name",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_append_child",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_orphan",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_destroy",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_push_default_mouse",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_push_default_keyboard",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_push_default_messages",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_push_message",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_has_message",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_process_messages",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_draw",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_draw_default_tooltip",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_default_handler",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_settings",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				}
+			],
+			"constants": []
+		}
+	]
+}
