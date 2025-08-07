@@ -425,7 +425,98 @@
 					"returntype": 2
 				}
 			],
-			"constants": []
+			"constants": [
+				{
+					"name": "ui_no",
+					"value": "0",
+					"hidden": false
+				},
+				{
+					"name": "ui_yes",
+					"value": "1",
+					"hidden": false
+				},
+				{
+					"name": "ui_default",
+					"value": "-99999",
+					"hidden": false
+				},
+				{
+					"name": "ui_left",
+					"value": "2",
+					"hidden": false
+				},
+				{
+					"name": "ui_right",
+					"value": "4",
+					"hidden": false
+				},
+				{
+					"name": "ui_up",
+					"value": "8",
+					"hidden": false
+				},
+				{
+					"name": "ui_down",
+					"value": "16",
+					"hidden": false
+				},
+				{
+					"name": "ui_center_h",
+					"value": "32",
+					"hidden": false
+				},
+				{
+					"name": "ui_center_v",
+					"value": "64",
+					"hidden": false
+				},
+				{
+					"name": "ui_fill_space",
+					"value": "-1",
+					"hidden": false
+				},
+				{
+					"name": "ui_fit_contents",
+					"value": "-2",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_panel",
+					"value": "1",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_button",
+					"value": "2",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_label",
+					"value": "3",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_break",
+					"value": "4",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_radio",
+					"value": "5",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_check",
+					"value": "6",
+					"hidden": false
+				},
+				{
+					"name": "ui_set_mousefocus",
+					"value": "1",
+					"hidden": false
+				}
+			]
 		}
 	]
 }

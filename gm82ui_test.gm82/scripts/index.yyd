@@ -1,60 +1,60 @@
 
-ui_create
-__gm82ui_layout_engine
-__gm82ui_draw_inner
+
+
+
 test_program
-ui_destroy
-ui_set_size
-ui_set_format
-ui_append_child
-ui_orphan
-ui_set_style
-ui_set_enabled
-__gm82ui_default_styler
+
+
+
+
+
+
+
+
 button_handler
-ui_set_text
-ui_set_alt
-__gm82ui_init
-ui_draw
-ui_set_transform
-__gm82ui_destroy_inner
-ui_set_name
-ui_get_by_name
+
+
+
+
+
+
+
+
 
 
 create_button
-ui_set_constraints
+
 
 
 window_handler
 
-ui_draw_default_tooltip
-ui_set_variable
-ui_set_handler
-ui_process_messages
-__gm82ui_process_inner
-ui_push_message
-ui_push_default_mouse
-__gm82ui_eat_message
-
-__gm82ui_fire_handler
 
 
-ui_set_blend
-__gm82ui_mark_stale
-ui_has_message
-ui_get_help
-ui_get_alt
 
 
-ui_set_pos
-__gm82ui_move
-ui_get_variable
-ui_default_handler
-ui_push_default_keyboard
-ui_push_default_messages
-__gm82ui_delete_message
-__gm82ui_takeyfocus
-ui_set_keyboard_enabled
-ui_settings
-ui_set_state
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
