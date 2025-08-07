@@ -5,12 +5,12 @@ if (argument0=="create") {
         ui_set_size(window,400,300)
         ui_set_format(window,ui_no,ui_left,ui_down)
 
-    button=ui_append_child(window,create_button("",window_handler,sprIcons,0))
+    button=ui_append_child(window,ui_create_button("",window_handler,sprIcons,0))
         ui_set_size(button,24,24)
         ui_set_name(button,"close")
         ui_set_alt(button,"Close","Closes the window.")
 
-    title=ui_append_child(window,create_button("Window",window_handler))
+    title=ui_append_child(window,ui_create_button("Window",window_handler))
         ui_set_size(title,ui_fill_space,24)
         ui_set_name(title,"title")
         ui_set_blend(title,$880088,1)
@@ -21,7 +21,7 @@ if (argument0=="create") {
         ui_set_size(panel,ui_fill_space,ui_fit_contents,4,0)
         ui_set_format(panel,ui_no,ui_right,ui_down)
 
-    button=ui_append_child(panel,create_button("Button1"))
+    button=ui_append_child(panel,ui_create_button("Button1"))
         ui_set_size(button,80,24,0,4)
         ui_set_alt(button,"button 1","yep that's a button 1")
         ui_set_keyboard_enabled(button,true)
@@ -33,12 +33,12 @@ if (argument0=="create") {
 
     ui_append_child(panel,ui_t_break)
 
-    button=ui_append_child(panel,create_button("Buttomn2",ui_default,sprIcons,0))
+    button=ui_append_child(panel,ui_create_button("Buttomn2",ui_default,sprIcons,0))
         ui_set_size(button,128,24,0,4)
         ui_set_alt(button,"button 2","yep that's a button 2")
         ui_set_keyboard_enabled(button,true)
 
-    button=ui_append_child(panel,create_button("Button3"))
+    button=ui_append_child(panel,ui_create_button("Button3"))
         ui_set_size(button,80,24,0,4)
         ui_set_alt(button,"button 3","yep that's a button 3")
         ui_set_keyboard_enabled(button,true)
