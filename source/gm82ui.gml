@@ -545,7 +545,9 @@
     ///ui_draw_default_tooltip(x,y)
     var w,h,dx,dy;
 
-    if (global.__gm82ui_alt!="") {
+    if (global.__gm82ui_alt!="") {    
+        __gm82ui_default_theme_loader()
+        
         w=string_width(global.__gm82ui_alt)+8
         h=24
 
@@ -556,7 +558,6 @@
         draw_rectangle_color(dx,dy,dx+w,dy+h,0,0,0,0,1)
         draw_set_valign(1)
         draw_set_color(0)
-        draw_set_font(__gm82ui_default_font())
         draw_text(dx+4,dy+12-1,global.__gm82ui_alt)
         draw_set_valign(0)
         draw_set_color($ffffff)
@@ -604,10 +605,10 @@
     //ui_default_styler(element)
 
     with (argument0) {
+        __gm82ui_default_theme_loader()
         draw_set_valign(1)
         draw_set_color(global.__gm82ui_col_text)
-        draw_set_font(__gm82ui_default_font())
-
+        
         if (type==ui_t_label) {
             draw_text(x,y+height div 2-1,text)
         } else if (type==ui_t_radio) or (type==ui_t_check) {
