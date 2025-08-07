@@ -13,7 +13,8 @@ ui.button_sprite=noone
 ui.text=argument[0]
 ui.handler=button_handler
 if (argument_count>1) {
-    ui.handler=argument[1]
+    if (argument[1]!=ui_default)
+        ui.handler=argument[1]
 }
 if (argument_count==4) {
     ui.button_sprite=argument[2]

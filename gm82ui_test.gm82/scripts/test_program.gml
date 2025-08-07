@@ -33,8 +33,8 @@ if (argument0=="create") {
 
     ui_append_child(panel,ui_t_break)
 
-    button=ui_append_child(panel,create_button("Button2"))
-        ui_set_size(button,80,24,0,4)
+    button=ui_append_child(panel,create_button("Buttomn2",ui_default,sprIcons,0))
+        ui_set_size(button,128,24,0,4)
         ui_set_alt(button,"button 2","yep that's a button 2")
         ui_set_keyboard_enabled(button,true)
 

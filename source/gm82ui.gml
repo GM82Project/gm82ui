@@ -408,10 +408,16 @@
             draw_sprite_part_ext(global.__gm82ui_buttontex,down,0,5,4,15,x,y+4,1,(height-8)/15,$ffffff,1)
             draw_sprite_part_ext(global.__gm82ui_buttontex,down,76,5,4,15,x+width-4,y+4,1,(height-8)/15,$ffffff,1)
 
-            if (type==ui_t_button) if (button_sprite!=noone)
-                draw_sprite(button_sprite,button_frame,x+width div 2+down,y+height div 2+down)
             draw_set_halign(1)
-            draw_text(x+width div 2,y+height div 2-1,text)
+            if (type==ui_t_button) {
+                if (button_sprite!=noone) {
+                    if (text!="") {
+                        var sprw;sprw=sprite_get_width(button_sprite)
+                        draw_sprite(button_sprite,button_frame,x+6+sprw div 2+down,y+height div 2+down)
+                        draw_text(x+(width+sprw+3) div 2,y+height div 2-1,text)
+                    } else draw_sprite(button_sprite,button_frame,x+width div 2+down,y+height div 2+down)
+                } else draw_text(x+width div 2,y+height div 2-1,text)
+            } else draw_text(x+width div 2,y+height div 2-1,text)
             draw_set_halign(0)
         }
 
