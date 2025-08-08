@@ -418,7 +418,10 @@
 
 
 #define ui_push_default_mouse
-    ui_push_message("mouse",mouse_x,mouse_y)
+    ///ui_push_default_mouse([x,y])
+    if (argument_count==2) ui_push_message("mouse",argument[0],argument[1])
+    else ui_push_message("mouse",mouse_x,mouse_y)
+    
     ui_push_message("focus")
 
     if (mouse_check_button(mb_left)) ui_push_message("left button")
@@ -513,7 +516,9 @@
 
 
 #define ui_draw
-    ///ui_draw(ui)
+    ///ui_draw(ui,[x,y])
+
+    if (argument_count!=1 and argument_count!=3) {show_error("in function ui_draw: wrong number of arguments("+string(argument_count)+")",0) exit}
 
     global.__gm82ui_alt=""
     global.__gm82ui_help=""
@@ -529,11 +534,12 @@
 
     with (argument0) {
         if (layout_stale) ui_set_transform(self,ui_default,ui_default,ui_default)
+        var dx,dy; dx=x dy=y if (argument_count==3) {dx+=argument[1] dy+=argument[2]}
         d3d_transform_stack_push()
         d3d_transform_add_translation(-x,-y,0)
         d3d_transform_add_scaling(image_xscale,image_yscale,1)
         d3d_transform_add_rotation_z(image_angle)
-        d3d_transform_add_translation(x,y,0)
+        d3d_transform_add_translation(dx,dy,0)
         __gm82ui_draw_inner(self)
         d3d_transform_stack_pop()
     }

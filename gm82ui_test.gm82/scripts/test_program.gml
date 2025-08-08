@@ -73,7 +73,6 @@ if (argument0=="create") {
     ui_set_variable(image,"src",background1_gm82)
     ui_append_child(panel,image)
 
-
     avg=0
 }
 if (argument0=="draw") {
