@@ -23,7 +23,7 @@
 					"name": "ui_create_button",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "ui_create_button(text,[handler,[sprite,frame]])",
+					"helpline": "ui_create_button(text,script,[sprite,frame])",
 					"hidden": false,
 					"argtypes": null,
 					"returntype": 2
@@ -538,6 +538,16 @@
 				{
 					"name": "ui_set_mousefocus",
 					"value": "1",
+					"hidden": false
+				},
+				{
+					"name": "ui_b_accept",
+					"value": "1",
+					"hidden": false
+				},
+				{
+					"name": "ui_b_cancel",
+					"value": "2",
 					"hidden": false
 				}
 			]

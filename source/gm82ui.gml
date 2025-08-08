@@ -31,6 +31,7 @@
         maxheight: int
         margin: int
         grabbed: bool
+        button_click: script
 
         resizable: const mask 
         direction1: const
@@ -88,6 +89,7 @@
     ui.margin=0
     ui.padding=0
     ui.grabbed=false
+    ui.button_click=noone
 
     ui.resizable=ui_no         
     ui.direction1=ui_right
