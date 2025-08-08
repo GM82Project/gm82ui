@@ -198,8 +198,8 @@
             if (argument4!=ui_default) image_xscale=argument4
             if (argument5!=ui_default) image_yscale=argument5
         } else {
-            x=parent.lx+padding
-            y=parent.ly+padding
+            x=parent.lx+max(xoffset,padding)
+            y=parent.ly+max(yoffset,padding)
         }
 
         lxi=x+margin
@@ -233,12 +233,13 @@
         mirror_v=false
         if (parent!=noone) {
             if (parent.direction1==ui_left or parent.direction1==ui_right) {
-                parent.lh=max(parent.lh,height+max(padding,parent.lpv))            
+                parent.lh=max(parent.lh,height+max(max(yoffset,padding),parent.lpv))            
+                parent.lp=max(parent.lp,padding)
             }
             if (parent.direction1==ui_up or parent.direction1==ui_down) {
-                parent.lh=max(parent.lh,width+max(padding,parent.lpv))            
+                parent.lh=max(parent.lh,width+max(max(xoffset,padding),parent.lpv))            
+                parent.lp=max(parent.lp,padding)
             }
-            parent.lp=max(parent.lp,padding)
             if (type==ui_t_break) {
                 //break a line
                 if (parent.direction1==ui_left or parent.direction1==ui_right) {
@@ -258,7 +259,7 @@
             } else {
                 //add to line
                 if (parent.direction1==ui_left or parent.direction1==ui_right) {
-                    parent.lx+=width+max(padding,parent.lp)
+                    parent.lx+=width+max(max(xoffset,padding),parent.lp)
                     parent.lph=padding
         
                     if (parent.direction1==ui_left) mirror_h=true
@@ -266,7 +267,7 @@
                 }
                 
                 if (parent.direction1==ui_up or parent.direction1==ui_down) {
-                    parent.ly+=height+max(padding,parent.lp)
+                    parent.ly+=height+max(max(yoffset,padding),parent.lp)
                     parent.lph=padding
                 
                     if (parent.direction1==ui_up) mirror_v=true

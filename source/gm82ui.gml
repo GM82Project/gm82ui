@@ -21,6 +21,8 @@
 
         x: int
         y: int
+        xoffset: int
+        yoffset: int
         width: int
         height: int
         minwidth: int
@@ -76,6 +78,8 @@
     ui.help=""
     ui.x=0
     ui.y=0
+    ui.xoffset=0
+    ui.yoffset=0
     ui.setwidth=0
     ui.setheight=0
     ui.width=0
@@ -195,6 +199,24 @@
     }
 
     __gm82ui_move(argument0,argument1-argument0.x,argument2-argument0.y)
+
+    if (!global.__gm82ui_in_handler) instance_deactivate_object(global.__gm82ui_obj)
+
+
+#define ui_set_offset
+    ///ui_set_offset(element,xoffset,yoffset)
+
+    if (!global.__gm82ui_in_handler) instance_activate_object(global.__gm82ui_obj)
+
+    if (!instance_exists(argument0)) exit
+
+    if (argument0.object_index!=global.__gm82ui_obj) {
+        show_error("in function ui_set_offset: instance is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
+        exit
+    }
+
+    argument0.xoffset=argument1
+    argument0.yoffset=argument2
 
     if (!global.__gm82ui_in_handler) instance_deactivate_object(global.__gm82ui_obj)
 

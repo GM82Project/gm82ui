@@ -48,6 +48,15 @@
 			"final": "",
 			"functions": [
 				{
+					"name": "ui_append_child",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_append_child(element,child)",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
 					"name": "ui_create",
 					"extname": "",
 					"calltype": 2,
@@ -57,10 +66,10 @@
 					"returntype": 2
 				},
 				{
-					"name": "ui_set_enabled",
+					"name": "ui_default_handler",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "ui_set_enabled(element,enabled)",
+					"helpline": "ui_default_handler(message,data)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -69,99 +78,41 @@
 					"returntype": 2
 				},
 				{
-					"name": "ui_set_keyboard_enabled",
+					"name": "ui_default_styler",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "ui_set_keyboard_enabled(element,enabled)",
+					"helpline": "ui_default_styler(element)",
 					"hidden": false,
 					"argtypes": [
-						2,
 						2
 					],
 					"returntype": 2
 				},
 				{
-					"name": "ui_set_name",
+					"name": "ui_destroy",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "ui_set_name(element,name)",
+					"helpline": "ui_destroy(element)",
 					"hidden": false,
 					"argtypes": [
-						2,
 						2
 					],
 					"returntype": 2
 				},
 				{
-					"name": "ui_set_size",
+					"name": "ui_draw",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "ui_set_size(element,width,height,[margin,padding])",
+					"helpline": "ui_draw(ui,[x,y])",
 					"hidden": false,
 					"argtypes": null,
 					"returntype": 2
 				},
 				{
-					"name": "ui_set_constraints",
+					"name": "ui_draw_default_tooltip",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "ui_set_constraints(element,minwidth,minheight,maxwidth,maxheight)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2,
-						2,
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_set_format",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_set_format(element,resize,direction1,direction2)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2,
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_set_pos",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_set_pos(element,x,y)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_set_transform",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_set_transform(ui,rotation,xscale,yscale)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2,
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_set_style",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_set_style(element,style)",
+					"helpline": "ui_draw_default_tooltip(x,y)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -170,10 +121,120 @@
 					"returntype": 2
 				},
 				{
-					"name": "ui_set_text",
+					"name": "ui_get_alt",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "ui_set_text(element,string)",
+					"helpline": "ui_get_alt()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "ui_get_by_name",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_get_by_name(name)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_get_help",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_get_help()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "ui_get_variable",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_get_variable(element,variable)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_has_message",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_has_message(message)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_orphan",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_orphan(element)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_process_messages",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_process_messages(element)",
+					"hidden": false,
+					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_push_default_keyboard",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_push_default_keyboard()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "ui_push_default_messages",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_push_default_messages()",
+					"hidden": false,
+					"argtypes": [],
+					"returntype": 2
+				},
+				{
+					"name": "ui_push_default_mouse",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_push_default_mouse([x,y])",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_push_message",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_push_message(message,[data])",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_settings",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_settings(setting,value)",
 					"hidden": false,
 					"argtypes": [
 						2,
@@ -208,12 +269,41 @@
 					"returntype": 2
 				},
 				{
-					"name": "ui_set_state",
+					"name": "ui_set_constraints",
 					"extname": "",
 					"calltype": 2,
-					"helpline": "ui_set_blend(element,state)",
+					"helpline": "ui_set_constraints(element,minwidth,minheight,maxwidth,maxheight)",
 					"hidden": false,
 					"argtypes": [
+						2,
+						2,
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_enabled",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_enabled(element,enabled)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_format",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_format(element,resize,direction1,direction2)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
 						2,
 						2
 					],
@@ -232,6 +322,115 @@
 					"returntype": 2
 				},
 				{
+					"name": "ui_set_keyboard_enabled",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_keyboard_enabled(element,enabled)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_name",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_name(element,name)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_offset",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_offset(element,xoffset,yoffset)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_pos",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_pos(element,x,y)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_size",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_size(element,width,height,[margin,padding])",
+					"hidden": false,
+					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_state",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_blend(element,state)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_style",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_style(element,style)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_text",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_text(element,string)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_set_transform",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_set_transform(ui,rotation,xscale,yscale)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
+						2,
+						2
+					],
+					"returntype": 2
+				},
+				{
 					"name": "ui_set_variable",
 					"extname": "",
 					"calltype": 2,
@@ -240,192 +439,6 @@
 					"argtypes": [
 						2,
 						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_get_variable",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_get_variable(element,variable)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_get_help",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_get_help()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "ui_get_alt",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_get_alt()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "ui_get_by_name",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_get_by_name(name)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_append_child",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_append_child(element,child)",
-					"hidden": false,
-					"argtypes": null,
-					"returntype": 2
-				},
-				{
-					"name": "ui_orphan",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_orphan(element)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_destroy",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_destroy(element)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_push_default_mouse",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_push_default_mouse([x,y])",
-					"hidden": false,
-					"argtypes": null,
-					"returntype": 2
-				},
-				{
-					"name": "ui_push_default_keyboard",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_push_default_keyboard()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "ui_push_default_messages",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_push_default_messages()",
-					"hidden": false,
-					"argtypes": [],
-					"returntype": 2
-				},
-				{
-					"name": "ui_push_message",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_push_message(message,[data])",
-					"hidden": false,
-					"argtypes": null,
-					"returntype": 2
-				},
-				{
-					"name": "ui_has_message",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_has_message(message)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_process_messages",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_process_messages(element)",
-					"hidden": false,
-					"argtypes": [
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_draw",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_draw(ui,[x,y])",
-					"hidden": false,
-					"argtypes": null,
-					"returntype": 2
-				},
-				{
-					"name": "ui_draw_default_tooltip",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_draw_default_tooltip(x,y)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_default_handler",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_default_handler(message,data)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_settings",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_settings(setting,value)",
-					"hidden": false,
-					"argtypes": [
-						2,
-						2
-					],
-					"returntype": 2
-				},
-				{
-					"name": "ui_default_styler",
-					"extname": "",
-					"calltype": 2,
-					"helpline": "ui_default_styler(element)",
-					"hidden": false,
-					"argtypes": [
 						2
 					],
 					"returntype": 2
