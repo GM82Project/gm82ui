@@ -7,6 +7,10 @@
     global.__gm82ui_mousefocus=true
     global.__gm82ui_theme_loaded=false
     
+    object_set_persistent(global.__gm82ui_obj)
+    object_event_add(gm82core_object,ev_other,ev_room_end,"instance_activate_object(global.__gm82ui_obj)")
+    object_event_add(gm82core_object,ev_other,ev_room_start,"instance_deactivate_object(global.__gm82ui_obj)")
+    
     var dir,theme;
 
     dir="SOFTWARE\Game Maker\Version 8.2\Preferences\"
