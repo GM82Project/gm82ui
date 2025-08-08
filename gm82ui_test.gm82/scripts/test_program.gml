@@ -1,18 +1,15 @@
 if (argument0=="create") {
-    window=ui_create(ui_t_panel,window_handler)
+    window=ui_create(ui_t_window)
         ui_set_pos(window,200,200)
-        ui_set_style(window,noone)
-        ui_set_size(window,400,300)
+        ui_set_size(window,400,ui_fit_contents)
         ui_set_format(window,ui_no,ui_left,ui_down)
 
-    button=ui_append_child(window,ui_create_button("",window_handler,sprIcons,0))
+    button=ui_append_child(window,ui_create_button("",closebutton_handler,sprIcons,0))
         ui_set_size(button,24,24)
-        ui_set_name(button,"close")
         ui_set_alt(button,"Close","Closes the window.")
 
-    title=ui_append_child(window,ui_create_button("Window",window_handler))
+    title=ui_append_child(window,ui_create_button("Window",noone))
         ui_set_size(title,ui_fill_space,24)
-        ui_set_name(title,"title")
         ui_set_blend(title,$880088,1)
 
     ui_append_child(window,ui_t_break)

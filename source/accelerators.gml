@@ -16,6 +16,11 @@
                 return true
             }
         }break
+        case "out of focus": {
+            if (state=="down") {
+                state="up"
+            }
+        }break
     }
 
     return ui_default_handler(argument0,argument1)

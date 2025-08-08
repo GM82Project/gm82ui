@@ -56,19 +56,15 @@
 
 #define __gm82ui_eat_message
     var l;
+    
+    if (handler==noone) return 0
 
     if (ds_map_exists(global.__gm82ui_messages,argument0)) {
-        l=ds_map_find_value(global.__gm82ui_messages,argument0)
-        if (handler==noone) {
+        l=ds_map_find_value(global.__gm82ui_messages,argument0)        
+        if (__gm82ui_fire_handler(argument0,l)) {
             ds_list_destroy(l)
             ds_map_delete(global.__gm82ui_messages,argument0)
             return 1
-        } else {
-            if (__gm82ui_fire_handler(argument0,l)) {
-                ds_list_destroy(l)
-                ds_map_delete(global.__gm82ui_messages,argument0)
-                return 1
-            }
         }
     }
 
@@ -79,10 +75,11 @@
     if (handler!=noone) {
         if (global.__gm82ui_in_handler) show_error("error in ui stack: handler recursion.",0)
         else {
+            var ret;
             global.__gm82ui_in_handler=true
             if (handler==ui_default) {
-                if (type==ui_t_button) __gm82ui_button_handler(argument0,argument1)
-                ret=ui_default_handler(argument0,argument1)
+                if (type==ui_t_button) ret=__gm82ui_button_handler(argument0,argument1)
+                else ret=ui_default_handler(argument0,argument1)
             } else ret=script_execute(handler,argument0,argument1)
             global.__gm82ui_in_handler=false
             return ret
@@ -103,8 +100,7 @@
 
         //pre-update handler
         __gm82ui_fire_handler("step",noone)
-
-
+        
         //reset to defaults
         focus=false
         if (parent==noone) {
@@ -125,6 +121,12 @@
             //child
             tmouse_x=parent.tmouse_x
             tmouse_y=parent.tmouse_y
+        }
+        
+        if (enabled) and (type==ui_t_window) and (grabbed) {
+            x+=tmouse_x-offset_x-x
+            y+=tmouse_y-offset_y-y
+            if (ui_has_message("left release")) grabbed=false
         }
 
 
@@ -154,7 +156,13 @@
                     __gm82ui_eat_message("scroll up")
                     __gm82ui_eat_message("scroll down")
                 }
-            }
+                
+                if (type==ui_t_window) if not (grabbed) and (ui_has_message("left click")) {
+                    grabbed=true
+                    offset_x=tmouse_x-x
+                    offset_y=tmouse_y-y
+                }
+            } else __gm82ui_fire_handler("out of focus")
 
             if (keyfocus) {
                 __gm82ui_eat_message("accept")

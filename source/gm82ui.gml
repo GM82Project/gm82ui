@@ -30,6 +30,7 @@
         maxwidth: int
         maxheight: int
         margin: int
+        grabbed: bool
 
         resizable: const mask 
         direction1: const
@@ -71,7 +72,7 @@
     ui.tabcount=0
     ui.taborder=noone
     ui.keyfocus=false
-
+    
     ui.style=ui_default
     ui.text=""
     ui.alt=""
@@ -86,6 +87,7 @@
     ui.height=0
     ui.margin=0
     ui.padding=0
+    ui.grabbed=false
 
     ui.resizable=ui_no         
     ui.direction1=ui_right
@@ -635,6 +637,8 @@
     //ui_default_styler(element)
 
     with (argument0) {
+        if (type==ui_t_window) exit
+        
         __gm82ui_default_theme_loader()
         draw_set_valign(1)
         draw_set_color(global.__gm82ui_col_text)

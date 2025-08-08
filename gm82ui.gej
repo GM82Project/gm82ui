@@ -531,6 +531,11 @@
 					"hidden": false
 				},
 				{
+					"name": "ui_t_window",
+					"value": "7",
+					"hidden": false
+				},
+				{
 					"name": "ui_set_mousefocus",
 					"value": "1",
 					"hidden": false
