@@ -456,6 +456,7 @@
 
     if (mouse_wheel_up()) ui_push_message("scroll up")
     if (mouse_wheel_down()) ui_push_message("scroll down")
+    ui_push_message("mouse messages")
 
 
 #define ui_push_default_keyboard
@@ -477,11 +478,12 @@
     if (keyboard_check_pressed(vk_tab)) {
         if (keyboard_check(vk_shift)) ui_push_message("back tab") else ui_push_message("tab")
     }
+    ui_push_message("keyboard messages")
 
 
 #define ui_push_default_messages
-    ui_push_default_mouse()
-    ui_push_default_keyboard()
+    if (!ui_has_message("mouse messages")) ui_push_default_mouse()
+    if (!ui_has_message("keyboard messages")) ui_push_default_keyboard()
 
 
 #define ui_push_message
