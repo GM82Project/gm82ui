@@ -9,7 +9,7 @@
         case "left release": case "accept release": {
             if (state=="down") {
                 state="up"
-                if (button_click!=noone) script_execute(button_click,ui_b_accept)
+                if (button_click!=noone) script_execute(button_click,name,ui_b_accept)
                 return true
             }
         }break
@@ -20,7 +20,7 @@
         case "right release": case "cancel release": {
             if (state=="down") {
                 state="up"
-                if (button_click!=noone) script_execute(button_click,ui_b_cancel)
+                if (button_click!=noone) script_execute(button_click,name,ui_b_cancel)
                 return true
             }
         }break
