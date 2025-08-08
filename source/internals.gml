@@ -102,7 +102,6 @@
         __gm82ui_fire_handler("step",noone)
         
         //reset to defaults
-        focus=false
         if (parent==noone) {
             //top-level parent
             if (ds_map_exists(global.__gm82ui_messages,"mouse")) {
@@ -162,7 +161,10 @@
                     offset_x=tmouse_x-x
                     offset_y=tmouse_y-y
                 }
-            } else __gm82ui_fire_handler("out of focus")
+            } else if (focus) {
+                __gm82ui_fire_handler("focus loss")
+                focus=false
+            }
 
             if (keyfocus) {
                 __gm82ui_eat_message("accept")
@@ -189,6 +191,9 @@
                     } until (find.cantab==true and find!=id) or (find==initial)
                 }
             }
+        } else if (focus) {
+            __gm82ui_fire_handler("focus loss")
+            focus=false
         }
 
         __gm82ui_fire_handler("end step",noone)
