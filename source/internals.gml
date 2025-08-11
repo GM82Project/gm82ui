@@ -1,4 +1,6 @@
 #define __gm82ui_init
+    globalvar gm82ui_version;gm82ui_version=010
+    
     global.__gm82ui_obj=object_add()
     global.__gm82ui_messages=ds_map_create()
     global.__gm82ui_alt=""
