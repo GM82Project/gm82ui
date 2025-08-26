@@ -445,6 +445,7 @@
 
 #define ui_push_default_mouse
     ///ui_push_default_mouse([x,y])
+    
     if (argument_count==2) ui_push_message("mouse",argument[0],argument[1])
     else ui_push_message("mouse",mouse_x,mouse_y)
     
@@ -463,6 +464,8 @@
 
 
 #define ui_push_default_keyboard
+    ///ui_push_default_keyboard()
+    
     if (keyboard_check(vk_enter) or keyboard_check(vk_space)) ui_push_message("accept")
     if (keyboard_check_pressed(vk_enter) and not keyboard_check(vk_space)) or (keyboard_check_pressed(vk_space) and not keyboard_check(vk_enter)) ui_push_message("accept press")
     if (keyboard_check_released(vk_enter) and not keyboard_check(vk_space)) or (keyboard_check_released(vk_space) and not keyboard_check(vk_enter)) ui_push_message("accept release")
@@ -484,6 +487,8 @@
 
 
 #define ui_push_default_messages
+    ///ui_push_default_messages()
+    
     ui_push_default_mouse()
     ui_push_default_keyboard()
 
