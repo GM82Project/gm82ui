@@ -643,8 +643,10 @@
 #define ui_reload_default_theme
     ///ui_reload_default_theme()
     
-    sprite_delete(global.__gm82ui_buttontex)
-    global.__gm82ui_theme_loaded=false
+    if (global.__gm82ui_theme_loaded) {
+        sprite_delete(global.__gm82ui_buttontex)
+        global.__gm82ui_theme_loaded=false
+    }
 
 
 #define ui_default_styler
