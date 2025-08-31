@@ -1,9 +1,9 @@
 {
 	"name": "Game Maker 8.2 UI",
 	"folder": "gm82",
-	"version": "0.1",
+	"version": "0.2",
 	"author": "renex",
-	"date": "08/08/2025",
+	"date": "31/08/2025",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package contains functions to create and handle hierarchical user interface layouts with basic interaction capabilities. JetBrains Mono: https://openfontlicense.org/",
 	"helpfile": "",
@@ -228,6 +228,15 @@
 					"helpline": "ui_push_message(message,[data])",
 					"hidden": false,
 					"argtypes": null,
+					"returntype": 2
+				},
+				{
+					"name": "ui_reload_default_theme",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_reload_default_theme()",
+					"hidden": false,
+					"argtypes": [],
 					"returntype": 2
 				},
 				{
@@ -709,6 +718,15 @@
 		{
 			"filename": "sprButtonWhitemaskSmooth.gmspr",
 			"origname": "include\\sprButtonWhitemaskSmooth.gmspr",
+			"kind": 4,
+			"init": "",
+			"final": "",
+			"functions": [],
+			"constants": []
+		},
+		{
+			"filename": "sprIcons.gmspr",
+			"origname": "include\\sprIcons.gmspr",
 			"kind": 4,
 			"init": "",
 			"final": "",

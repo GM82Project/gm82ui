@@ -8,6 +8,7 @@
     global.__gm82ui_in_handler=false
     global.__gm82ui_mousefocus=true
     global.__gm82ui_theme_loaded=false
+    global.__gm82ui_font_loaded=false
     
     object_set_persistent(global.__gm82ui_obj,true)
     object_event_add(gm82core_object,ev_other,ev_room_end,"instance_activate_object(global.__gm82ui_obj)")
@@ -398,7 +399,7 @@
 
         dir="SOFTWARE\Game Maker\Version 8.2\Preferences\"
         theme=registry_read_dword(dir+"GM82CustomThemeIndex",0)
-
+        
         if (theme==0) {
             global.__gm82ui_col_low=$203020
             global.__gm82ui_col_main=$404040
@@ -439,7 +440,11 @@
             surface_free(s)
             global.__gm82ui_buttontex=spr
         }
-        global.__gm82ui_font=font_add_file(temp_directory+"\gm82\JetBrainsMonoNL-Medium.ttf","JetBrains Mono NL Medium",12,0,0,0,255)
+        if (!global.__gm82ui_font_loaded) {
+            global.__gm82ui_icons=sprite_add_sprite(temp_directory+"\gm82\sprIcons.gmspr")
+            global.__gm82ui_font=font_add_file(temp_directory+"\gm82\JetBrainsMonoNL-Medium.ttf","JetBrains Mono NL Medium",12,0,0,0,255)
+            global.__gm82ui_font_loaded=true
+        }
         global.__gm82ui_theme_loaded=true
     }
     draw_set_font(global.__gm82ui_font)

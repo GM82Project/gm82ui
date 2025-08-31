@@ -95,7 +95,7 @@
     ui.direction1=ui_right
     ui.direction2=ui_down
 
-    ui.image_blend=global.__gm82ui_col_main
+    ui.image_blend=ui_default
 
     ui.layout_stale=false
 
@@ -291,7 +291,7 @@
 
 
 #define ui_set_state
-    ///ui_set_blend(element,state)
+    ///ui_set_state(element,state)
 
     ui_set_variable(argument0,"state",argument1)
 
@@ -640,6 +640,14 @@
     }
 
 
+#define ui_reload_default_theme
+    ///ui_reload_default_theme()
+    
+    sprite_delete(global.__gm82ui_buttontex)
+    global.__gm82ui_theme_loaded=false
+    __gm82ui_default_theme_loader()
+
+
 #define ui_default_styler
     //ui_default_styler(element)
 
@@ -665,15 +673,16 @@
             draw_sprite_part_ext(global.__gm82ui_buttontex,2,0,5,4,15,x,y+4,1,(height-8)/15,$ffffff,1)
             draw_sprite_part_ext(global.__gm82ui_buttontex,2,76,5,4,15,x+height-4,y+4,1,(height-8)/15,$ffffff,1)
 
-            if (down) draw_sprite(sprIcons,1+(type==ui_t_radio),x+height div 2,y+height div 2)
+            if (down) draw_sprite(global.__gm82ui_icons,1+(type==ui_t_radio),x+height div 2,y+height div 2)
             draw_text(x+height+4,y+height div 2-1,text)
         } else {
             down=(state!="up")
 
             if (type==ui_t_panel) down=0
 
-            if (image_blend!=noone) {
-                draw_rect(x,y,width,height,image_blend)
+            if (image_blend!=4294967296+noone) {
+                if (image_blend==4294967296+ui_default) draw_rect(x,y,width,height,global.__gm82ui_col_main)
+                else draw_rect(x,y,width,height,image_blend)
             }
 
             draw_sprite_part(global.__gm82ui_buttontex,down*2,0,0,4,4,x,y)
