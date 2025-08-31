@@ -645,7 +645,6 @@
     
     sprite_delete(global.__gm82ui_buttontex)
     global.__gm82ui_theme_loaded=false
-    __gm82ui_default_theme_loader()
 
 
 #define ui_default_styler
