@@ -9,6 +9,7 @@
     global.__gm82ui_mousefocus=true
     global.__gm82ui_theme_loaded=false
     global.__gm82ui_font_loaded=false
+    global.__gm82ui_debug=debug_mode
     
     object_set_persistent(global.__gm82ui_obj,true)
     object_event_add(gm82core_object,ev_other,ev_room_end,"instance_activate_object(global.__gm82ui_obj)")
@@ -338,7 +339,7 @@
                 __gm82ui_draw_inner(ds_list_find_value(children,i))
             i+=1}
 
-            if (debug_mode && keyboard_check(vk_f8)) {
+            if (global.__gm82ui_debug) {
                 draw_rectangle(x,y,x+width,y+height,1)
                 if (direction1==ui_right) {x1=x+8 x2=x+width-8}
                 if (direction1==ui_left) {x1=x+width-8 x2=x+8}

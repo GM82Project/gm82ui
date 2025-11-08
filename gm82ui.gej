@@ -3,7 +3,7 @@
 	"folder": "gm82",
 	"version": "0.2",
 	"author": "renex",
-	"date": "31/08/2025",
+	"date": "08/11/2025",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package contains functions to create and handle hierarchical user interface layouts with basic interaction capabilities. JetBrains Mono: https://openfontlicense.org/",
 	"helpfile": "",
@@ -455,38 +455,13 @@
 			],
 			"constants": [
 				{
-					"name": "ui_no",
-					"value": "0",
-					"hidden": false
-				},
-				{
-					"name": "ui_yes",
+					"name": "ui_b_accept",
 					"value": "1",
 					"hidden": false
 				},
 				{
-					"name": "ui_default",
-					"value": "-99999",
-					"hidden": false
-				},
-				{
-					"name": "ui_left",
+					"name": "ui_b_cancel",
 					"value": "2",
-					"hidden": false
-				},
-				{
-					"name": "ui_right",
-					"value": "4",
-					"hidden": false
-				},
-				{
-					"name": "ui_up",
-					"value": "8",
-					"hidden": false
-				},
-				{
-					"name": "ui_down",
-					"value": "16",
 					"hidden": false
 				},
 				{
@@ -500,6 +475,16 @@
 					"hidden": false
 				},
 				{
+					"name": "ui_default",
+					"value": "-99999",
+					"hidden": false
+				},
+				{
+					"name": "ui_down",
+					"value": "16",
+					"hidden": false
+				},
+				{
 					"name": "ui_fill_space",
 					"value": "-1",
 					"hidden": false
@@ -510,38 +495,23 @@
 					"hidden": false
 				},
 				{
-					"name": "ui_t_panel",
-					"value": "1",
-					"hidden": false
-				},
-				{
-					"name": "ui_t_button",
+					"name": "ui_left",
 					"value": "2",
 					"hidden": false
 				},
 				{
-					"name": "ui_t_label",
-					"value": "3",
+					"name": "ui_no",
+					"value": "0",
 					"hidden": false
 				},
 				{
-					"name": "ui_t_break",
+					"name": "ui_right",
 					"value": "4",
 					"hidden": false
 				},
 				{
-					"name": "ui_t_radio",
-					"value": "5",
-					"hidden": false
-				},
-				{
-					"name": "ui_t_check",
-					"value": "6",
-					"hidden": false
-				},
-				{
-					"name": "ui_t_window",
-					"value": "7",
+					"name": "ui_set_debugmode",
+					"value": "2",
 					"hidden": false
 				},
 				{
@@ -550,13 +520,48 @@
 					"hidden": false
 				},
 				{
-					"name": "ui_b_accept",
+					"name": "ui_t_break",
+					"value": "4",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_button",
+					"value": "2",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_check",
+					"value": "6",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_label",
+					"value": "3",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_panel",
 					"value": "1",
 					"hidden": false
 				},
 				{
-					"name": "ui_b_cancel",
-					"value": "2",
+					"name": "ui_t_radio",
+					"value": "5",
+					"hidden": false
+				},
+				{
+					"name": "ui_t_window",
+					"value": "7",
+					"hidden": false
+				},
+				{
+					"name": "ui_up",
+					"value": "8",
+					"hidden": false
+				},
+				{
+					"name": "ui_yes",
+					"value": "1",
 					"hidden": false
 				}
 			]
