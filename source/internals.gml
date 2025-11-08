@@ -338,7 +338,7 @@
                 __gm82ui_draw_inner(ds_list_find_value(children,i))
             i+=1}
 
-            if (keyboard_check(vk_f8)) {
+            if (debug_mode && keyboard_check(vk_f8)) {
                 draw_rectangle(x,y,x+width,y+height,1)
                 if (direction1==ui_right) {x1=x+8 x2=x+width-8}
                 if (direction1==ui_left) {x1=x+width-8 x2=x+8}
