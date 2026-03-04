@@ -261,6 +261,12 @@
                 parent.lh=max(parent.lh,width+max(max(xoffset,padding),parent.lpv))            
                 parent.lp=max(parent.lp,padding)
             }
+            
+            with (parent) {
+                if (setwidth==ui_fit_contents) width=max(width,lx+lph+margin-x)
+                if (setheight==ui_fit_contents) height=max(height,ly+lh+lp+margin-y)
+            }
+            
             if (type==ui_t_break) {
                 //break a line
                 if (parent.direction1==ui_left or parent.direction1==ui_right) {
@@ -268,7 +274,7 @@
                     parent.ly+=parent.lh
                     parent.lh=0
                     parent.lpv=parent.lp
-                    parent.lp=0
+                    parent.lp=0                    
                 }
                 if (parent.direction1==ui_up or parent.direction1==ui_down) {
                     parent.ly=parent.lyi
