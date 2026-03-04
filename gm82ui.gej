@@ -3,7 +3,7 @@
 	"folder": "gm82",
 	"version": "0.2",
 	"author": "renex",
-	"date": "08/11/2025",
+	"date": "03/03/2026",
 	"license": "Free to use, also for commercial games.",
 	"description": "Part of the standard Game Maker 8.2 distribution. This extension package contains functions to create and handle hierarchical user interface layouts with basic interaction capabilities. JetBrains Mono: https://openfontlicense.org/",
 	"helpfile": "",
@@ -168,6 +168,19 @@
 					"helpline": "ui_has_message(message)",
 					"hidden": false,
 					"argtypes": [
+						2
+					],
+					"returntype": 2
+				},
+				{
+					"name": "ui_hit_test",
+					"extname": "",
+					"calltype": 2,
+					"helpline": "ui_hit_test(ui,x,y)",
+					"hidden": false,
+					"argtypes": [
+						2,
+						2,
 						2
 					],
 					"returntype": 2

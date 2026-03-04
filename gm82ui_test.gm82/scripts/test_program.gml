@@ -3,6 +3,7 @@ if (argument0=="create") {
         ui_set_pos(window,200,200)
         ui_set_size(window,400,ui_fit_contents)
         ui_set_format(window,ui_no,ui_left,ui_down)
+        ui_set_transform(window,5,1,1)
 
     button=ui_append_child(window,ui_create_button("",closebutton_click,sprIcons,0))
         ui_set_size(button,24,24)
@@ -81,6 +82,8 @@ if (argument0=="draw") {
 
     ui_draw(window)
     ui_draw_default_tooltip(mouse_x,mouse_y+32)
+
+    draw_text(10,10,"hit test: "+string(ui_hit_test(window,mouse_x,mouse_y)))
 
     draw_text(10,room_height-30,string(avg)+" | "+ui_get_help())
 }

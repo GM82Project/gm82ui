@@ -548,6 +548,35 @@
     ds_map_clear(global.__gm82ui_messages)
 
 
+#define ui_hit_test    
+    ///ui_hit_test(ui,x,y)
+    //Returns whether the ui element can be hit at the coordinate.
+    var stale,find,last,dir,dis;
+    
+    instance_activate_object(global.__gm82ui_obj)
+    
+    if (!instance_exists(argument0)) exit
+
+    if (argument0.object_index!=global.__gm82ui_obj) {
+        show_error("in function ui_hit_test: instance is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
+        exit
+    }
+    
+    stale=false find=argument0
+    do {if (find.layout_stale) stale=true last=find find=find.parent} until (find==noone)
+    
+    if (stale) with (last) {ui_set_transform(self,ui_default,ui_default,ui_default) instance_activate_object(argument0)}      
+
+    dir=point_direction(argument0.x,argument0.y,argument1,argument2)-argument0.image_angle
+    dis=point_distance(argument0.x,argument0.y,argument1,argument2)
+    
+    find=point_in_rectangle(argument0.x+lengthdir_x(dis,dir),argument0.y+lengthdir_y(dis,dir),argument0.x,argument0.y,argument0.x+argument0.width,argument0.y+argument0.height)
+    
+    instance_deactivate_object(global.__gm82ui_obj)
+    
+    return find
+    
+    
 #define ui_draw
     ///ui_draw(ui,[x,y])
 
