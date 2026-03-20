@@ -512,6 +512,28 @@
     }
 
 
+#define ui_prebake_layout
+    ///ui_prebake_layout(ui)
+    //Forces baking the layout to prevent a lag spike when the ui first becomes visible.
+    
+    instance_activate_object(global.__gm82ui_obj)
+
+    if (!instance_exists(argument0)) exit
+
+    if (argument0.object_index!=global.__gm82ui_obj) {
+        show_error("in function ui_prebake_layout: instance is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
+        exit
+    }
+    
+    with (argument0) {
+        ui_set_transform(self,ui_default,ui_default,ui_default)
+        if (style==ui_default) ui_default_styler(self)
+        else if (style!=noone) script_execute(style,self)
+    }
+    
+    instance_deactivate_object(global.__gm82ui_obj)
+
+
 #define ui_has_message
     ///ui_has_message(message)
 
