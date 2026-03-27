@@ -592,7 +592,7 @@
     dir=point_direction(argument0.x,argument0.y,argument1,argument2)-argument0.image_angle
     dis=point_distance(argument0.x,argument0.y,argument1,argument2)
     
-    find=point_in_rectangle(argument0.x+lengthdir_x(dis,dir),argument0.y+lengthdir_y(dis,dir),argument0.x,argument0.y,argument0.x+argument0.width,argument0.y+argument0.height)
+    find=point_in_rectangle(argument0.x+lengthdir_x(dis,dir),argument0.y+lengthdir_y(dis,dir),argument0.x,argument0.y,argument0.x+argument0.width*argument0.image_xscale,argument0.y+argument0.height*argument0.image_yscale)
     
     instance_deactivate_object(global.__gm82ui_obj)
     
