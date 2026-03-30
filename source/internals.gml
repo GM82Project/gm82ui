@@ -152,8 +152,10 @@
                 }
 
                 if (handler!=noone) {
+                    __gm82ui_eat_message("left button")
                     __gm82ui_eat_message("left click")
                     __gm82ui_eat_message("left release")
+                    __gm82ui_eat_message("right button")
                     __gm82ui_eat_message("right click")
                     __gm82ui_eat_message("right release")
                     __gm82ui_eat_message("scroll up")
