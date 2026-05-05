@@ -618,7 +618,7 @@
 
     with (argument0) {
         if (layout_stale) ui_set_transform(self,ui_default,ui_default,ui_default)
-        var dx,dy; dx=x dy=y if (argument_count==3) {dx+=argument[1] dy+=argument[2]}
+        var dx,dy; dx=x dy=y if (argument_count==3) {dx=argument[1] dy=argument[2]}
         d3d_transform_stack_push()
         d3d_transform_add_translation(-x,-y,0)
         d3d_transform_add_scaling(image_xscale,image_yscale,1)
