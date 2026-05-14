@@ -250,6 +250,10 @@
         if (setwidth==ui_fit_contents) width=max(width,lx+lph+margin-x)
         if (setheight==ui_fit_contents) height=max(height,ly+lh+lp+margin-y)
 
+        if (minwidth) width=max(width,minwidth)
+        if (maxwidth) width=min(width,maxwidth)
+        if (minheight) height=max(height,minheight)
+        if (maxheight) height=min(height,maxheight)
 
         //layout resolver
         mirror_h=false

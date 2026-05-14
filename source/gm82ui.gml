@@ -90,6 +90,11 @@
     ui.padding=0
     ui.grabbed=false
     ui.button_click=noone
+    
+    ui.minwidth=ui_default
+    ui.minheight=ui_default
+    ui.maxwidth=ui_default
+    ui.maxheight=ui_default
 
     ui.resizable=ui_no         
     ui.direction1=ui_right
