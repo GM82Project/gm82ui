@@ -35,7 +35,10 @@
 
 
 #define ui_create_button
-    ///ui_create_button(text,script,[sprite,frame])
+    ///ui_create_button(text,handler,[sprite,frame])
+    //Creates a button element registered to a button handler script.
+    //The button handler will receive the name of the button as argument0, and ui_b_accept or ui_b_cancel as argument1 depending on the action performed (left or right click etc).
+    //The default button styler will display the sprite+frame set up when passing those arguments.
     var ui;
 
     if (argument_count!=2 and argument_count!=4) {

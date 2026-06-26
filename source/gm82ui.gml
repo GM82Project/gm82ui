@@ -1,5 +1,14 @@
 #define ui_create
     ///ui_create(type,[handler])
+    //Creates and returns the id of a ui element of 'ui_t_...' type with an optional handler script associated with it.
+    //Valid types:
+    //ui_t_window - a top-level panel that has a visible border and can be dragged with the mouse by default.
+    //ui_t_panel - a generic container element used to define layout blocks.
+    //ui_t_label - a text label.
+    //ui_t_button - a clickable button.
+    //ui_t_check - a checkbox.
+    //ui_t_radio - a radiobutton.
+    //ui_t_break - a break element used to jump to the next line in a layout.
     
     /*
         fields:
@@ -111,26 +120,34 @@
 
 #define ui_set_enabled
     ///ui_set_enabled(element,enabled)
+    //Sets whether the ui element is enabled i.e. is clickable and is not grayed out.
 
     ui_set_variable(argument0,"enabled",argument1)
 
 
 #define ui_set_keyboard_enabled
     ///ui_set_keyboard_enabled(element,enabled)
-    //enables the use of keyboard focus and controls for this element
-    //disabled by default
+    //Enables the use of keyboard focus and controls for this element.
+    //Keyboard control is disabled by default.
 
     ui_set_variable(argument0,"cantab",argument1)
 
 
 #define ui_set_name
     ///ui_set_name(element,name)
+    //Gives an element a name that can be used to find it later using ui_get_by_name(), similar to website programming.
+    //This name is also used by button handler scripts to identify which action the button should trigger.
 
     ui_set_variable(argument0,"name",argument1)
 
 
 #define ui_set_size
     ///ui_set_size(element,width,height,[margin,padding])
+    //element: ui element
+    //width, height: rectangle size (can use ui_fill_space and ui_fit_contents)
+    //margin: optional extra space inside of this element for its inner children.
+    //padding: optional space around this object to separate it from its siblings.
+    //Sets the size values of an element. Note that dynamically sized elements with 'fill' or 'fit' behaviors need other elements to adjust to.
 
     if (argument_count<3 or argument_count>5) {
         show_error("in function ui_set_size: wrong number of arguments",0)
@@ -158,6 +175,9 @@
 
 #define ui_set_constraints
     ///ui_set_constraints(element,minwidth,minheight,maxwidth,maxheight)
+    //element: ui element
+    //min, max: minimum and maximum size the element is allowed to have
+    //This is used to set a size limit to elements using ui_fill_space or ui_fit_contents.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(argument0)
 
@@ -178,6 +198,11 @@
 
 #define ui_set_format
     ///ui_set_format(element,resize,direction1,direction2)
+    //element: ui element
+    //resize: (currently unused)
+    //direction1: reading order
+    //direction2: line order
+    //Changes the reading order for children elements nested inside this element. Used to control layout direction for ui construction.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(argument0)
 
@@ -197,6 +222,7 @@
 
 #define ui_set_pos
     ///ui_set_pos(element,x,y)
+    //Sets the position of a top-level parent ui element. Using this function to move a child will be overridden by the layout engine.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(global.__gm82ui_obj)
 
@@ -214,6 +240,7 @@
 
 #define ui_set_offset
     ///ui_set_offset(element,xoffset,yoffset)
+    //Sets the position offset of a child ui element inside of its parent.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(global.__gm82ui_obj)
 
@@ -232,6 +259,7 @@
 
 #define ui_set_transform
     ///ui_set_transform(ui,rotation,xscale,yscale)
+    //Sets the rotation and scaling value for an ui element.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(argument0)
 
@@ -249,18 +277,22 @@
 
 #define ui_set_style
     ///ui_set_style(element,style)
+    //Defines the styler script used to render an ui element.
+    //This script receives the ui element as argument0 and can render it in any way you want, using the variables in the ui element such as x, y, width, height, name, text, state, and any other custom variables set by you.
 
     ui_set_variable(argument0,"style",argument1)
 
 
 #define ui_set_text
     ///ui_set_text(element,string)
+    //Sets the text property of an ui element like buttons or labels.
 
     ui_set_variable(argument0,"text",argument1)
 
 
 #define ui_set_alt
     ///ui_set_alt(element,alt,help)
+    //Sets the alternate and help text strings of an ui element. In most cases this is a longer description that appears when hovering over a button, or on a status bar.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(argument0)
 
@@ -279,6 +311,7 @@
 
 #define ui_set_blend
     ///ui_set_blend(element,color,alpha)
+    //Sets the color and alpha blending values of an ui element.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(argument0)
 
@@ -297,25 +330,59 @@
 
 #define ui_set_state
     ///ui_set_state(element,state)
+    //Changes the internal state value of an ui element. Can be useful to force buttons to appear pressed. The state variable is used to handle click events and to render the element.
 
     ui_set_variable(argument0,"state",argument1)
 
 
 #define ui_set_handler
     ///ui_set_handler(element,handler)
+    //Changes the script that will be used as a handler for the element.
+    //The handler script operates on the scope of the ui element that has received the message, and receives the message type as argument0 and any data associated with it as a dslist on argument1. When the event has no data, noone is passed instead.
+    //Currently, none of the builtin message types have data. However, sending a custom message using ui_push_message() with more than one argument will send a message with data.
+    //Whenever the handler is supposed to eat a message, return true. Otherwise, return false and the message will propagate forward to this element's children.
+    //
+    //Common events can be:
+    //"focus loss"
+    //"step"
+    //"end step" (fired after all other events are handled)
+    //
+    //Mouse:
+    //"left button"
+    //"left click"
+    //"left release"
+    //"right button"
+    //"right click"
+    //"right release"
+    //"scroll up"
+    //"scroll down"
+    //
+    //Keyboard:
+    //"accept"
+    //"accept press"
+    //"accept release"
+    //"cancel"
+    //"cancel press"
+    //"cancel release"
+    //"menu"
+    //"menu press"
+    //"menu release"
+    //"page up"
+    //"page down"
 
     ui_set_variable(argument0,"handler",argument1)
 
 
 #define ui_set_variable
     ///ui_set_variable(element,variable,value)
+    //Directly sets a variable in a ui element, that can then be used to customize behavior in its handler or styler scripts.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(argument0)
 
     if (!instance_exists(argument0)) exit
 
     if (argument0.object_index!=global.__gm82ui_obj) {
-        show_error("in function ui_set_[variable]: instance is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
+        show_error("in function ui_set_[variable]: instance ("+string(argument0)+") is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
         exit
     }
 
@@ -325,13 +392,14 @@
 
 #define ui_get_variable
     ///ui_get_variable(element,variable)
+    //Gets the value of a variable in the ui element.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(argument0)
 
     if (!instance_exists(argument0)) exit
 
     if (argument0.object_index!=global.__gm82ui_obj) {
-        show_error("in function ui_get_[variable]: instance is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
+        show_error("in function ui_get_[variable]: instance ("+string(argument0)+") is "+object_get_name(argument0.object_index)+" instead of an ui element",0)
         exit
     }
 
@@ -343,20 +411,22 @@
 
 #define ui_get_help
     ///ui_get_help()
-    //returns the help string of the currently focused element.
+    //returns the help string of the currently focused element. Can be used for status bars or side description panels.
 
     return global.__gm82ui_help
 
 
 #define ui_get_alt
     ///ui_get_alt()
-    //returns the alt string of the currently focused element.
+    //returns the alt string of the currently focused element. Can be used for tooltips.
 
     return global.__gm82ui_alt
 
 
 #define ui_get_by_name
     ///ui_get_by_name(name)
+    //Finds a ui element by its 'name' field that can be set with ui_set_name().
+    //Returns the ui element id or 'noone'.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(global.__gm82ui_obj)
 
@@ -375,6 +445,9 @@
 
 #define ui_append_child
     ///ui_append_child(element,child)
+    //Appends a child to an existing ui element.
+    //You can give this function an existing child element, or an ui_t_ type constant to automatically create a blank one. This is useful for quickly appending break elements, since they do not have any properties.
+    //As convenience, this function also returns the child id, so it can be chained as 'new_element = ui_append_child(old_element, ui_create(...))'.
 
     var element;element=argument1
     if (element<100000) element=ui_create(argument1)
@@ -421,6 +494,7 @@
 
 #define ui_orphan
     ///ui_orphan(element)
+    //Removes an element from its parent, becoming a top-level element.
 
     if (!global.__gm82ui_in_handler) instance_activate_object(argument0)
 
@@ -443,6 +517,7 @@
 
 #define ui_destroy
     ///ui_destroy(element)
+    //Destroys an ui element and all of its children recursively.
 
     ui_set_variable(argument0,"dead",true)
     __gm82ui_mark_stale(argument0)
@@ -450,6 +525,8 @@
 
 #define ui_push_default_mouse
     ///ui_push_default_mouse([x,y])
+    //Pushes the default mouse messages, optionally with a custom cursor position.
+    //Any pushed messages are handled by the next call to ui_process_messages() on a ui element.
     
     if (argument_count==2) ui_push_message("mouse",argument[0],argument[1])
     else ui_push_message("mouse",mouse_x,mouse_y)
@@ -470,6 +547,8 @@
 
 #define ui_push_default_keyboard
     ///ui_push_default_keyboard()
+    //Pushes the default keyboard messages.
+    //Any pushed messages are handled by the next call to ui_process_messages() on a ui element.
     
     if (keyboard_check(vk_enter) or keyboard_check(vk_space)) ui_push_message("accept")
     if (keyboard_check_pressed(vk_enter) and not keyboard_check(vk_space)) or (keyboard_check_pressed(vk_space) and not keyboard_check(vk_enter)) ui_push_message("accept press")
@@ -493,6 +572,8 @@
 
 #define ui_push_default_messages
     ///ui_push_default_messages()
+    //Pushes both the default mouse and keyboard messages.
+    //Any pushed messages are handled by the next call to ui_process_messages() on a ui element.
     
     ui_push_default_mouse()
     ui_push_default_keyboard()
@@ -500,6 +581,9 @@
 
 #define ui_push_message
     ///ui_push_message(message,[data])
+    //Pushes a custom message to be handled.
+    //message: a string identifier of the message type.
+    //data: The handler will receive all the remaining arguments in a ds_list, or 'noone'.
     
     if (argument_count==0) {
         show_error("In function ui_push_message: wrong number of arguments ("+string(argument_count)+")",0)
@@ -519,7 +603,7 @@
 
 #define ui_prebake_layout
     ///ui_prebake_layout(ui)
-    //Forces baking the layout to prevent a lag spike when the ui first becomes visible.
+    //Bakes the layout of an element and its children, preventing a lag spike when the element is rendered for the first time.
     
     instance_activate_object(global.__gm82ui_obj)
 
@@ -541,12 +625,15 @@
 
 #define ui_has_message
     ///ui_has_message(message)
+    //Returns whether there is currently a staged message of this type.
 
     return ds_map_exists(global.__gm82ui_messages,argument0)
 
 
 #define ui_process_messages
     ///ui_process_messages(element)
+    //Causes an element to recursively handle all the currently staged messages.
+    //Any messages not handled by this element or its children are discarded.
 
     instance_activate_object(global.__gm82ui_obj)
 
@@ -577,7 +664,8 @@
 
 #define ui_hit_test    
     ///ui_hit_test(ui,x,y)
-    //Returns whether the ui element can be hit at the coordinate.
+    //Returns whether the ui element's rectangle can be hit at the room-space coordinates, respecting its current transformation.
+    
     var stale,find,last,dir,dis;
     
     instance_activate_object(global.__gm82ui_obj)
@@ -606,6 +694,7 @@
     
 #define ui_draw
     ///ui_draw(ui,[x,y])
+    //Renders an ui element through its configured styler, with an optional room-space x,y coordinate to override its position.
 
     if (argument_count!=1 and argument_count!=3) {show_error("in function ui_draw: wrong number of arguments("+string(argument_count)+")",0) exit}
 
@@ -638,6 +727,8 @@
 
 #define ui_draw_default_tooltip
     ///ui_draw_default_tooltip(x,y)
+    //Draws a mouse tooltip using the default style provided with the extension.
+    
     var w,h,dx,dy;
 
     if (global.__gm82ui_alt!="") {    
@@ -690,6 +781,9 @@
 
 #define ui_settings
     ///ui_settings(setting,value)
+    //Change global options for the extension.
+    //Currently supported options:
+    //ui_set_debugmode: enables layout arrows and hitbox display
 
     switch (argument0) {
         case ui_set_mousefocus: global.__gm82ui_mousefocus=!!argument1
@@ -699,6 +793,7 @@
 
 #define ui_reload_default_theme
     ///ui_reload_default_theme()
+    //Reloads the default theme when changes have been made to its settings such as light mode or custom colors.
     
     if (global.__gm82ui_theme_loaded) {
         sprite_delete(global.__gm82ui_buttontex)
@@ -707,8 +802,6 @@
 
 
 #define ui_default_styler
-    //ui_default_styler(element)
-
     with (argument0) {
         if (type==ui_t_window) exit
         
